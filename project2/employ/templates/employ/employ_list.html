@@ -1,0 +1,26 @@
+{% extends 'employ/base.html' %}
+
+{% block content %}
+<table class="table table-bordered mt-5">
+    <thead>
+        <th>ID</th>
+        <th>姓</th>
+        <th>名</th>
+        <th>メール</th>
+        <th>部署</th>
+        <th>部活</th>
+    </thead>
+    <tbody>
+        {% for employ in employ_list %}
+        <tr>
+            <td>{{employ.pk}}</td>
+            <td>{{employ.last_name}}</td>
+            <td>{{employ.first_name}}</td>
+            <td>{{employ.email}}</td>
+            <td>{{employ.department}}</td>
+            <td>{% for club in employ.club.all %}{{club}}{% endfor %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
