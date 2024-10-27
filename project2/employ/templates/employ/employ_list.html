@@ -1,6 +1,10 @@
 {% extends 'employ/base.html' %}
 
 {% block content %}
+<form action=""method='GET'>
+<button type="submit">検索</button>
+{{ form }}
+</form>
 <table class="table table-bordered mt-5">
     <thead>
         <th>ID</th>
@@ -23,4 +27,5 @@
         {% endfor %}
     </tbody>
 </table>
+{% include 'employ/page5.html'%}
 {% endblock %}
