@@ -1,0 +1,48 @@
+/*共通のcss
+------------------------------------------*/
+
+@charset 'UTF-8';
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-size: 0.875rem;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    transform: all 0.5s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    list-style: none
+}
+
+/*コンテンツ幅を共通にするための
+------------------------------------------*/
+.wrapper {
+    width: 100%;
+    max-width: ;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+/*ヘッダーについて
+------------------------------------------*/
+#header {
+    display: flex;
+    width: 100%;
+
+}
