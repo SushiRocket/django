@@ -38,11 +38,66 @@ li {
     padding: 0 40px;
 }
 
+.site-title {
+    font-size: 2rem;
+}
+
 
 /*ヘッダーについて
 ------------------------------------------*/
 #header {
     display: flex;
     width: 100%;
-
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
 }
+/*ハンバーガーメニュー
+メニュー閉じているときは、left-300,opacity:0で非表示
+------------------------------------------*/
+#navi {
+    position: fixed;
+    z-index: 20;
+    left: -300px;
+    top: 0px;
+    width: 300px;
+    color: #fff;
+    padding: 36px 50px;
+    transition: all 0.5s;
+    opacity: 0;
+}
+#navi li {
+    margin-bottom: 14px;
+}
+#navi a {
+    color: #fff;
+}
+/*ハンバーガーメニューを開くときは
+left:0、opacity:1、transitionで出現
+------------------------------------------*/
+.open #navi {
+    left: -0px;
+    opacity: 1;
+}
+.toggle-btn {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: all 0.5s;
+    cursor: pointer;
+    z-index: 20;
+}
+.toggle-btn span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    border-radius: 4px;
+    transition: all 0.5s;
+    position: absolute;
+}
+}
+
+
