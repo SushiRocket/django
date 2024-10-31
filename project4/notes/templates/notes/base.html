@@ -12,13 +12,13 @@
 </head>
 <body>
 
-  <header id="header" class="wrapper">
-      <div class="site-title">
+  <header id="header">
+      <div class="site-title wrapper">
         <a href="{% url 'notes:index'%}">Notes</a>
       </div>
       
       <nav id="navi">
-        <ul class="navi-menu">
+        <ul class="wrapper">
           <li>
             <a href="#">料理</a>
           </li>
@@ -30,9 +30,6 @@
           </li>
           <li>
             <a href="#">プログラミング</a>
-          </li>
-          <li>
-            <a href="#">私について</a>
           </li>
         </ul>
       </nav>
@@ -57,24 +54,59 @@
     <aside id="sidebar">
       <section class="author">
         <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
-        <h5 class="side-title">毛利 謙太</h5>
-        <h3 id="name-english">Kenta Mouri</h3>
+        <h3 class="section-title">Kenta Mouri</h3>
         <a href="#">私について</a>
+      </section>
+      <section class="category">
+        <div>
+          <h3 class="section-title">カテゴリ一覧</h3>
+          {% for category in category_list %}
+          <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
+          {% endfor %}
+        </div>
       </section>
     </aside>
   </div>
 
-  <div>
-    <ul>
-        <li>カテゴリ一覧</li>
-        {% for category in category_list %}
-        <li><a href="{% url 'notes:category' category.pk %}">{{ category }}</a></li>
-        {% endfor %}
-    </ul>
-  </div>
   {% include 'notes/page.html' %}
+
   <footer>
-        <p>毛利謙太</p>
+    <footer id="footer">
+      <div class="content wrapper">
+        <section class="item">
+          <h3 class="footer-title">About</h3>
+          <p>
+            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+            テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
+          </p>
+          <ul class="about-list">
+            <li><a href="#" class="arrow">プロフィール詳細</a></li>
+            <li><a href="#" class="arrow">お仕事の依頼</a></li>
+            <li><a href="#" class="arrow">お問い合わせ</a></li>
+          </ul>
+        </section>
+
+        <section class="item">
+          <h3 class="footer-title">Menu</h3>
+          <ul class="menu-list">
+            <li><a href="#">NEW</a></li>
+            <li><a href="#">CATEGORY</a></li>
+            <li><a href="#">COLUMN</a></li>
+            <li><a href="#">SERIES</a></li>
+            <li><a href="#">Q&A</a></li>
+          </ul>
+        </section>
+
+        <section class="item">
+          <h3 class="footer-title">Twitter</h3>
+          <a class="twitter-timeline" data-height="315" href="https://twitter.com/X?ref_src=twsrc%5Etfw">Tweets by X</a>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </section>
+      </div>
+
+      <p class="copyright">&copy Notes</p>
+    </footer>
   </footer>
 
 
