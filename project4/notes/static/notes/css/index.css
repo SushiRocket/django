@@ -32,12 +32,13 @@ li {
 /*コンテンツ幅を共通にするための
 ------------------------------------------*/
 .wrapper {
-    width: 100%;
-    max-width: ;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
 }
-
+main {
+    margin-bottom: 160px;
+}
 .site-title {
     font-size: 2rem;
 }
@@ -51,53 +52,54 @@ li {
     height: 80px;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
-    z-index: 10;
+    background-color: ;
+    padding: 20px 16px;
+    margin-bottom: 40px;
 }
-/*ハンバーガーメニュー
-メニュー閉じているときは、left-300,opacity:0で非表示
+.navi-menu {
+    display: flex;
+}
+.navi-menu li {
+    padding: 10px 20px 10px 0;
+}
+/*containerについて
 ------------------------------------------*/
-#navi {
-    position: fixed;
-    z-index: 20;
-    left: -300px;
-    top: 0px;
-    width: 300px;
-    color: #fff;
-    padding: 36px 50px;
-    transition: all 0.5s;
-    opacity: 0;
+#container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 60px;
 }
-#navi li {
-    margin-bottom: 14px;
-}
-#navi a {
-    color: #fff;
-}
-/*ハンバーガーメニューを開くときは
-left:0、opacity:1、transitionで出現
+/*mainについて
 ------------------------------------------*/
-.open #navi {
-    left: -0px;
-    opacity: 1;
+#main {
+    width: 60%;
 }
-.toggle-btn {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    transition: all 0.5s;
-    cursor: pointer;
-    z-index: 20;
+.article-content {
+    margin-bottom: 120px;
 }
-.toggle-btn span {
-    display: block;
-    width: 30px;
-    height: 2px;
-    background-color: #333;
-    border-radius: 4px;
-    transition: all 0.5s;
-    position: absolute;
+.article-title {
+    font-size: 1.5rem;
+    margin: 1rem 0 1rem 0;
 }
+#main p {
+    font-size: 1rem;
+    margin: 0.875rem 0 0.875rem 0;
 }
-
+/*mainについて
+------------------------------------------*/
+#sidebar {
+    width: 25%;
+}
+.author {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.author img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    text-align: center;
+    object-fit: cover;
+}
 
