@@ -1,6 +1,7 @@
 {% extends 'notes/base.html' %}
 
 {% block content %}
+{% if post %}
 <div>
     <h2 >{{ post.title }}</h2>
     <div >
@@ -8,7 +9,9 @@
         {{ post.text|linebreaksbr }}
     </div>
   </div>
-
+{% else %}
+  <p>データが見つかりませんでした。</p>
+{% endif %}
 {% for comment in post.comment_set.all %}
 <p>
   {{ comment.name }}<br>

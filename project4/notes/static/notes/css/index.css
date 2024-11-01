@@ -78,30 +78,30 @@ main {
 /*containerについて
 ------------------------------------------*/
 #container {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 60px;
 }
 /*mainについて
 ------------------------------------------*/
 #main {
-    width: 60%;
+margin-bottom: 40px;
 }
 .article-content {
-    margin-bottom: 120px;
+    text-align: center;
+    background: #ede8e4;
+    margin-bottom: 80px;
 }
 .article-title {
     font-size: 1.5rem;
     margin: 1rem 0 1rem 0;
 }
 #main p {
-    font-size: 1rem;
-    margin: 0.875rem 0 0.875rem 0;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 /*sidebarについて
 ------------------------------------------*/
 #sidebar {
-    width: 25%;
+    margin-bottom: 40px;
 }
 .author {
     text-align: center;
