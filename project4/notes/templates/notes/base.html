@@ -37,6 +37,9 @@
 
   <div id="container" class="wrapper">
     <main id="main">
+      {% block content %}
+      {% endblock %}
+      
       {% for post in post_list %}
           <div class="article-content">
             <h2 class="article-title"><a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
@@ -47,6 +50,10 @@
             {% else %}
             <p>画像がありません。</p>
             {% endif %}
+            <div class="read-more">
+              <a href="{% url 'notes:detail' post.pk %}">記事を読む</a>
+            </div>
+
           </div>
         {% endfor %}
     </main>
