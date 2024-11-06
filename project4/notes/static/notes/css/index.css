@@ -87,8 +87,11 @@ margin-bottom: 40px;
 }
 .article-content {
     text-align: center;
-    background: #ede8e4;
+    background: #e6f0f0;
+    padding: 1rem 1rem;
     margin-bottom: 80px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    border-radius: 2%;
 }
 .article-title {
     font-size: 1.5rem;
@@ -106,29 +109,102 @@ margin-bottom: 40px;
 .author {
     text-align: center;
     margin-bottom: 60px;
+    padding: 1rem 1rem;
+    margin-bottom: 80px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    border-radius: 2%;
+
 }
 .author img {
     width: 130px;
     height: 130px;
     border-radius: 50%;
+    margin-top: 15px;
     margin-bottom: 30px;
     text-align: center;
     object-fit: cover;
 }
+.read-me {
+    margin: 5px 0 10px 0;
+}
 .category {
     text-align: center;
     margin-bottom: 60px;
+    padding: 1rem 1rem;
+    margin-bottom: 80px;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    border-radius: 2%;
 }
 .section-title {
     font-size: 1.2rem;
 }
 .category-list {
     font-size: 1.2rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(51, 51, 51, 0.4);
+
 }
+/*footerについて
+------------------------------------------*/
+#footer {
+    font-size: 0.875rem;
+    background-color: #e6f0f0;
+}
+#footer .item {
+    margin-bottom: 20px;
+    width: 100%;
+}
+#footer .content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1rem;
 
+}
+#footer ul.about-list {
+    margin: 20px 0;
+    padding: 0;
+}
+#footer ul.about-list li {
+    margin-bottom: 10px;
+}
+#footer ul.about-list .arrow {
+    position: relative;
+    display: inline-block;
+    padding-left: 12px;
+    color: #333;
+}/*
+疑似要素で三角矢印を表示
+border～プロパティで三角を作り、positionで位置調整
+-------------------------------------------------*/
+#footer ul.about-list .arrow::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 0 6px 8px;
+    border-color: transparent transparent transparent #333;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -6px;
+}
+#footer ul.menu-list {
+    border-bottom: 1px solid #777;
+    margin: 20px 0;
+    padding: 0;
 
-
+}
+#footer ul.menu-list li {
+    border-top:  1px solid #777;
+    padding: 15px;
+}
+#footer .copyright {
+    font-size: 0.750rem;
+    text-align: center;
+    padding: 10px 0;
+}
 /*-------------------------------------------
 SP
 -------------------------------------------*/
