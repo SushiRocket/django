@@ -11,7 +11,7 @@ html {
 
 body {
     font-size: 0.875rem;
-    background-color:  #97bbd3;
+    background-color: #ffffff;
 }
 
 a {
@@ -59,7 +59,7 @@ main {
     font-weight: bold;
 }
 #navi {
-    background-color:#403c3c;
+    background-color:#7acbe1;
     width: 100%;
 }
 #navi ul {
@@ -79,6 +79,7 @@ main {
 ------------------------------------------*/
 #container {
     margin-bottom: 60px;
+    align-items: center;
 }
 /*mainについて
 ------------------------------------------*/
