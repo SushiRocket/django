@@ -1,0 +1,31 @@
+{% extends 'notes/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="about-top wrapper">
+    <h1>
+        about me
+    </h1>
+    <div class="about-list">
+        <ul>
+            <li>・2012/03 大分県立中津東高等学校 電気電子科 卒業</li>
+            <li>・2014/03 関西外国語大学 短期大学部 英米語学科 卒業</li>
+            <li>・2016/04 関西外国語大学 外国語学部 英米語学科 編入学</li>
+            <li>・2018/06 関西外国語大学 外国語学部 英米語学科 卒業</li>
+            <li>・2017/07~2020/08 株式会社松山商会</li>
+            <li>・2020/09 株式会社Buzcycle 創業</li>
+            <li>・2024/08 株式会社Buzcycle 廃業</li>
+        </ul>
+    </div>
+    <div>
+        <img src={% static 'notes/images/my_prof.jpg' %} alt="プロフィール画像">
+    </div>
+</div>
+<div class="about-content">
+    <p>テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト</p>
+</div>
+
+
+{% endblock %}

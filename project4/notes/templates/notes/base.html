@@ -34,52 +34,9 @@
         </ul>
       </nav>
   </header>
-
-  <div id="container" class="wrapper">
-    <main id="main">
-      {% block content %}
-      {% endblock %}
-
-      {% for post in post_list %}
-          <div class="article-content">
-            <h2 class="article-title">
-              <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
-            </h2>
-            <p>{{ post.created_at}}/ {{ post.category }}</p>
-            {% if post.image %}
-            <img src="{{ post.image.url }}" alt="画像">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif %}
-            <div class="read-more">
-              <a href="{% url 'notes:detail' post.pk %}">記事を読む</a>
-            </div>
-          </div>
-        {% endfor %}
-    </main>
-
-    <div class="page-menu">
-      {% include 'notes/page.html' %}
-    </div>
-
-    <aside id="sidebar">
-      <section class="author">
-        <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
-        <h3 class="section-title">Kenta Mouri</h3>
-        <div class="read-me">
-          <a href="#">私について</a>
-        </div>
-      </section>
-      <section class="category">
-        <div>
-          <h3 class="section-title">カテゴリ一覧</h3>
-          {% for category in category_list %}
-          <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
-          {% endfor %}
-        </div>
-      </section>
-    </aside>
-  </div>
+  
+  {% block content %}
+  {% endblock %}
 
     <footer id="footer">
       <div class="content wrapper">

@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404,redirect
 from django.views import generic
+from django.views.generic import TemplateView
 from.forms import CommentCreateForm
 from .models import Post,Category,Comment
 
@@ -40,3 +41,7 @@ class CommentView(generic.CreateView):
         comment.post = get_object_or_404(Post,pk=post_pk)
         comment.save()
         return redirect('notes:detail',pk=post_pk)
+
+
+class AboutView(TemplateView):
+    template_name = 'notes/about.html'
