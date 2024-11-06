@@ -42,7 +42,8 @@
 
       {% for post in post_list %}
           <div class="article-content">
-            <h2 class="article-title"><a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
+            <h2 class="article-title">
+              <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
             </h2>
             <p>{{ post.created_at}}/ {{ post.category }}</p>
             {% if post.image %}
@@ -57,11 +58,17 @@
         {% endfor %}
     </main>
 
+    <div class="page-menu">
+      {% include 'notes/page.html' %}
+    </div>
+
     <aside id="sidebar">
       <section class="author">
         <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
         <h3 class="section-title">Kenta Mouri</h3>
-        <a href="#">私について</a>
+        <div class="read-me">
+          <a href="#">私について</a>
+        </div>
       </section>
       <section class="category">
         <div>
@@ -74,9 +81,6 @@
     </aside>
   </div>
 
-  {% include 'notes/page.html' %}
-
-  <footer>
     <footer id="footer">
       <div class="content wrapper">
         <section class="item">
@@ -113,7 +117,6 @@
 
       <p class="copyright">&copy Notes</p>
     </footer>
-  </footer>
 
 
 </body>
