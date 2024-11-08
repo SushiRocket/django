@@ -49,18 +49,21 @@ main {
 /*ヘッダーについて
 ------------------------------------------*/
 #header {
+    display: flex;
+    justify-content: space-between;
     width: 100%;
+    margin-top: 30px;
     margin-bottom: 40px;
 }
 #header .site-title {
     text-align: left;
     font-size: 2rem;
     font-weight: bold;
+    margin-left: 10px;
 }
 #navi {
     position: relative;
 }
-
 .menu {
     list-style: none;
     padding: 0;
