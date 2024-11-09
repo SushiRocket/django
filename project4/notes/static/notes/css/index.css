@@ -120,6 +120,13 @@ main {
     margin-bottom: 60px;
     align-items: center;
 }
+/*container-topについて
+------------------------------------------*/
+.container-top {
+    text-align: center;
+    margin: 15px auto;
+
+}
 /*mainについて
 ------------------------------------------*/
 #main {
