@@ -124,7 +124,8 @@ main {
 ------------------------------------------*/
 .container-top {
     text-align: center;
-    margin: 15px auto;
+    margin: 2rem auto;
+    font-size: 2rem;
 
 }
 /*mainについて
