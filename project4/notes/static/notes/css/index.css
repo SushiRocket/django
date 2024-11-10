@@ -148,6 +148,54 @@ margin-bottom: 40px;
     font-size: 0.75rem;
     margin: 0.5rem 0 0.5rem 0;
 }
+/*paginationについて
+------------------------------------------*/
+/* ページネーションの全体スタイル */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px 0;
+    justify-content: center; /* 中央寄せ */
+}
+
+/* 各ページ番号のスタイル */
+.page-item {
+    margin: 0 5px; /* 各ページ番号間の間隔 */
+}
+
+/* ページ番号リンクのスタイル */
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    color: #007bff; /* 青色 */
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* ホバー時のスタイル */
+.page-link:hover {
+    background-color: #f0f0f0;
+    color: #0056b3;
+}
+
+/* 現在のページ番号のスタイル */
+.page-item.active .page-link {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    cursor: default;
+}
+
+/* 非アクティブページのリンクに無効スタイル */
+.page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: transparent;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
 /*sidebarについて
 ------------------------------------------*/
 #sidebar {
