@@ -3,35 +3,40 @@
 
 {% block content %}
 <div id="container" class="wrapper">
-    <div class="container-top">
-      What's New?
-    </div>
-    <div class="container-subtop">
-      最新の投稿！
-    </div>
 
     <main id="main">
+      <div class="container-top">
+        What's New?
+      </div>
+      <div class="container-subtop">
+        最新の投稿！
+      </div>  
       {% for post in post_list %}
           <div class="article-content">
+            <ul>
+              <li id="post-created-at">
+                <p>{{ post.created_at|date:"Y.m.d"}}</p>
+              </li>
+              <li id="post-image">
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="画像">
+                {% else %}
+                <p>画像がありません。</p>
+                {% endif %}    
+              </li>
+            </ul>
             <h2 class="article-title">
               <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
             </h2>
-            <p>{{ post.created_at}}/ {{ post.category }}</p>
-            {% if post.image %}
-            <img src="{{ post.image.url }}" alt="画像">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif %}
-            <div class="read-more">
-              <a href="{% url 'notes:detail' post.pk %}">記事を読む</a>
-            </div>
           </div>
         {% endfor %}
+
+      <div class="page-menu">
+      {% include 'notes/page.html' %}
+      </div>
+
     </main>
 
-    <div class="page-menu">
-      {% include 'notes/page.html' %}
-    </div>
 
     <aside id="sidebar">
       <div class="author-top">
