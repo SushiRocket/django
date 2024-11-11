@@ -6,6 +6,10 @@
     <div class="container-top">
       What's New?
     </div>
+    <div class="container-subtop">
+      最新の投稿！
+    </div>
+
     <main id="main">
       {% for post in post_list %}
           <div class="article-content">
@@ -32,6 +36,9 @@
     <aside id="sidebar">
       <div class="author-top">
         What's About Me?
+      </div>
+      <div class="author-subtop">
+        どんなひと？
       </div>
       <section class="author">
          <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
