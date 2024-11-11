@@ -228,9 +228,18 @@ margin-bottom: 40px;
     margin: 5px 0 10px 0;
 }
 .category-top {
+    display: inline-block;
+    width: 100%;
     text-align: center;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem auto;
     font-size: 2rem;
+}
+.category-subtop {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin: 0.75rem auto;
+    font-size: 0.75rem;
 }
 .category {
     text-align: center;
