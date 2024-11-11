@@ -227,6 +227,11 @@ margin-bottom: 40px;
 .read-me {
     margin: 5px 0 10px 0;
 }
+.category-top {
+    text-align: center;
+    margin: 2rem auto;
+    font-size: 2rem;
+}
 .category {
     text-align: center;
     margin-bottom: 60px;
