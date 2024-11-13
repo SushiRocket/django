@@ -66,6 +66,21 @@
           {% endfor %}
         </div>
       </section>
+      <section class="pick-up">
+        <div class="pick-up-top">
+          Pick-Up
+        </div>
+        <div class="pick-up-subtop">
+          注目の記事！
+        </div>  
+        <div>
+          <h3 class="section-title">カテゴリ一覧</h3>
+          {% for category in category_list %}
+          <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
+          {% endfor %}
+        </div>
+      </section>
+
     </aside>
   </div>
 
