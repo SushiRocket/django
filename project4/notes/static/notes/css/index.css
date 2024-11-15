@@ -374,3 +374,47 @@ border～プロパティで三角を作り、positionで位置調整
 /*-------------------------------------------
 SP
 -------------------------------------------*/
+@media (min-width: 768px) {
+    #header {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    #header .site-title {
+        font-size: 3rem;
+    }
+    #main {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    .article-content ul {
+        flex-direction: row;
+    }
+    #post-created-at {
+        width: 10%;
+        text-align: center;
+    }
+    #post-image {
+        width: 85%;
+    }
+    #footer .content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        transform: none;
+        height: auto;
+        background-color: transparent;
+        gap: 0;
+    }
+    .menu a {
+        padding: 0 15px;
+    }
+    .menu-icon,
+    .menu-toggle {
+        display: none;
+    }
+}
