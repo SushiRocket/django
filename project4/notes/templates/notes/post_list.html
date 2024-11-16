@@ -10,7 +10,7 @@
       </div>
       <div class="container-subtop">
         最新の投稿！
-      </div>  
+      </div>
       {% for post in post_list %}
           <div class="article-content">
             <ul>
@@ -22,7 +22,7 @@
                 <img src="{{ post.image.url }}" alt="画像">
                 {% else %}
                 <p>画像がありません。</p>
-                {% endif %}    
+                {% endif %}
               </li>
             </ul>
             <h2 class="article-title">
