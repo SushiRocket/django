@@ -224,6 +224,10 @@ padding-bottom: 120px;
 #sidebar {
     margin-bottom: 40px;
 }
+#author-container {
+    background-color: #9CD5EA;
+    padding-bottom: 120px;
+}
 .author-top {
     display: inline-block;
     width: 100%;
@@ -240,7 +244,6 @@ padding-bottom: 120px;
 .author {
     text-align: center;
     padding-bottom: 70px;
-    background-color: #9CD5EA;
 }
 .author img {
     width: 130px;

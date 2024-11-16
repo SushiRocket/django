@@ -38,21 +38,22 @@
 
   </div>
 
-
-    <aside id="sidebar" class="wrapper">
-      <section class="author">
-        <div class="author-top">
-          What's About Me?
-        </div>
-        <div class="author-subtop">
-          どんなひと？
-        </div>
-        <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
-        <h3 class="section-title">Kenta Mouri</h3>
-        <div class="read-me">
-          <a href="{% url 'notes:about' %}">私について</a>
-        </div>
-      </section>
+    <aside id="sidebar">
+      <div id="author-container">
+        <section class="author wrapper">
+          <div class="author-top">
+            What's About Me?
+          </div>
+          <div class="author-subtop">
+            どんなひと？
+          </div>
+          <img src="{% static 'notes/images/my_prof.jpg' %}" alt="">
+          <h3 class="section-title">Kenta Mouri</h3>
+          <div class="read-me">
+            <a href="{% url 'notes:about' %}">私について</a>
+          </div>
+        </section>  
+      </div>
       <section class="category">
         <div class="category-top">
           Category
