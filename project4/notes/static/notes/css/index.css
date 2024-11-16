@@ -262,7 +262,7 @@ padding-bottom: 120px;
 /*categoryについて
 ------------------------------------------*/
 #category-container {
-    background-color: #5FD8AA;
+    background-color: #eeeeee;
     padding-bottom: 120px;
 }
 .category-top {
@@ -292,7 +292,7 @@ padding-bottom: 120px;
 }
 /*pick-upについて
 ------------------------------------------*/
-#category-container {
+#pick-up-container {
     background-color: #5FD8AA;
     padding-bottom: 120px;
 }
