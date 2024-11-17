@@ -326,6 +326,8 @@ padding-bottom: 120px;
     margin-bottom: 20px;
     width: 100%;
 }
+/*contentについて
+------------------------------------------*/
 #footer .content {
     display: flex;
     justify-content: space-between;
@@ -333,8 +335,6 @@ padding-bottom: 120px;
     align-items: flex-start;
     padding: 1rem 1rem;
 }
-/*contentについて
-------------------------------------------*/
 .content-top {
     display: inline-block;
     width: 100%;
@@ -343,6 +343,8 @@ padding-bottom: 120px;
     font-size: 2rem;
     font-weight: bold;
 }
+/*aboutについて
+------------------------------------------*/
 #footer ul.about-list {
     margin: 20px 0;
     padding: 0;
