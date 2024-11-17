@@ -229,6 +229,7 @@ padding-bottom: 120px;
 ------------------------------------------*/
 #author-container {
     background-color: #9CD5EA;
+    padding-top: 40px;
     padding-bottom: 120px;
 }
 .author-top {
