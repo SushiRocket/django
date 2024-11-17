@@ -237,6 +237,7 @@ padding-bottom: 120px;
     width: 100%;
     text-align: center;
     font-size: 2rem;
+    font-weight: bold;
 }
 .author-subtop {
     display: inline-block;
