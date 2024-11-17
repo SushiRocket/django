@@ -137,6 +137,7 @@ li {
 ------------------------------------------*/
 #main-container {
 background-color: #eeeeee;
+padding-top: 40px;
 padding-bottom: 120px;
 }
 .article-content {
