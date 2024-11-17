@@ -373,6 +373,8 @@ border～プロパティで三角を作り、positionで位置調整
     left: 0;
     margin-top: -6px;
 }
+/*menuについて
+------------------------------------------*/
 #footer ul.menu-list {
     border-bottom: 1px solid #777;
     margin: 20px 0;
