@@ -262,6 +262,27 @@ padding-bottom: 120px;
 .read-me {
     margin: 5px 0 10px 0;
 }
+/*social-iconsについて
+------------------------------------------*/
+.social-icons {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    justify-content: center;
+}
+.social-icons li {
+    display: inline-block;
+}
+.social-icons a {
+    text-decoration: none;
+    color: #000;
+    font-size: 45px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #0073e6; /* ホバー時の色 */
+}
 /*categoryについて
 ------------------------------------------*/
 #category-container {
