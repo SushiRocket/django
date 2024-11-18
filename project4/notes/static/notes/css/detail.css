@@ -29,6 +29,14 @@
 #post-detail-comments {
     padding: 40px 40px;
 }
+#comment-content {
+    margin-bottom: 40px;
+}
+#comment-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 0 ;
+}
 #comment-btn a {
     font-weight: bold;
 }
