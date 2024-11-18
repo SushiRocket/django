@@ -1,0 +1,34 @@
+/*postについて
+------------------------------------------*/
+#post-detail-container {
+    max-width: 100%;
+    background-color: #eeeeee;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+#post-detail {
+    text-align: center;
+}
+#post-detail-title {
+    font-size: 2rem;
+    font-weight: bold;
+}
+#post-detail-text {
+    max-width: 100%;
+    padding: 40px 40px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    font-size: 1rem;
+    letter-spacing: 0.5em;
+    line-height: 2;
+}
+/*commentについて
+------------------------------------------*/
+#comment-btn a {
+    font-weight: bold;
+}
+#comment-btn p {
+    opacity: 0.4;
+}

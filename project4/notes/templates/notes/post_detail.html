@@ -1,23 +1,38 @@
 {% extends 'notes/base.html' %}
 
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'notes/css/detail.css' %}">
+{% endblock %}
+
 {% block content %}
 {% if post %}
-<div>
-    <h2 >{{ post.title }}</h2>
-    <div >
-        <p>{{ post.created_at}}, {{ post.category }}</p>
-        {{ post.text|linebreaksbr }}
+<div id="post-detail-container">
+  <div id="post-detail" class="wrapper">
+    <div id="post-detail-title">{{ post.title }}</div>
+    <div id="post-detail-created_at">
+      {{ post.created_at|date:"Y.m.d"}} / {{ post.category }}
+    </div>
+    <div id="post-detail-text">
+      {{ post.text|linebreaksbr }}
     </div>
   </div>
-{% else %}
-  <p>データが見つかりませんでした。</p>
-{% endif %}
-{% for comment in post.comment_set.all %}
-<p>
-  {{ comment.name }}<br>
-  {{ comment.text|linebreaksbr }}
-</p>
-{% endfor %}
-<a  href="{% url 'notes:comment' post.pk %}">コメント投稿ページへ</a>
+  <div id="post-detail-comments" class="wrapper">
+      {% else %}
+      <p>データが見つかりませんでした。</p>
+    {% endif %}
+    {% for comment in post.comment_set.all %}
+    <p>
+      {{ comment.name }}<br>
+      {{ comment.text|linebreaksbr }}
+    </p>
+    {% endfor %}
+    <div id="comment-btn">
+      <a  href="{% url 'notes:comment' post.pk %}">コメント</a>
+      <p>コメントを追加して感想を伝えよう</p>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
