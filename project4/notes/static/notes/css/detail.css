@@ -26,6 +26,9 @@
 }
 /*commentについて
 ------------------------------------------*/
+#post-detail-comments {
+    padding: 40px 40px;
+}
 #comment-btn a {
     font-weight: bold;
 }
