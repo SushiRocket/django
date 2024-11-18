@@ -9,6 +9,10 @@
      {% load static %}
     <link rel="stylesheet" href="{% static 'notes/css/index.css' %}">
 
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'notes/css/detail.css' %}">
+    {% endblock %}
+
     <title>毛利謙太のNotes</title>
 </head>
 <body>
