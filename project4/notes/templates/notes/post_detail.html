@@ -17,15 +17,18 @@
     <div id="post-detail-text">
       {{ post.text|linebreaksbr }}
     </div>
+    {% else %}
+    <p>データが見つかりませんでした。</p>
+  {% endif %}
   </div>
-  <div id="post-detail-comments" class="wrapper">
-      {% else %}
-      <p>データが見つかりませんでした。</p>
-    {% endif %}
+    <div id="post-detail-comments" class="wrapper">
     {% for comment in post.comment_set.all %}
-    <p>
-      {{ comment.name }}<br>
+    <div id="comment-name">
+      {{ comment.name }}
+    </div>
+    <div id="comment-text">
       {{ comment.text|linebreaksbr }}
+    </div>
     </p>
     {% endfor %}
     <div id="comment-btn">
