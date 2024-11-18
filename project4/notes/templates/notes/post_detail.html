@@ -23,13 +23,14 @@
   </div>
     <div id="post-detail-comments" class="wrapper">
     {% for comment in post.comment_set.all %}
-    <div id="comment-name">
-      {{ comment.name }}
+    <div id="comment-content">
+      <div id="comment-name">
+        <i class="fa-solid fa-face-smile"></i> {{ comment.name }}
+      </div>
+      <div id="comment-text">
+        {{ comment.text|linebreaksbr }}
+      </div>
     </div>
-    <div id="comment-text">
-      {{ comment.text|linebreaksbr }}
-    </div>
-    </p>
     {% endfor %}
     <div id="comment-btn">
       <a  href="{% url 'notes:comment' post.pk %}">コメント</a>
