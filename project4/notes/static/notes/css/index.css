@@ -307,8 +307,6 @@ padding-bottom: 120px;
 .category {
     text-align: center;
     padding-bottom: 70px;
-    border: 1px solid rgba(51, 51, 51, 0.1);
-    border-radius: 2%;
 }
 .category-list {
     font-size: 1.2rem;
