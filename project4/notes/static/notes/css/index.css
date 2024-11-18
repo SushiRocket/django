@@ -50,7 +50,7 @@ li {
     justify-content: space-between;
     width: 100%;
     margin-top: 30px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 #header .site-title {
     text-align: left;
@@ -307,8 +307,6 @@ padding-bottom: 120px;
 .category {
     text-align: center;
     padding-bottom: 70px;
-    border: 1px solid rgba(51, 51, 51, 0.1);
-    border-radius: 2%;
 }
 .category-list {
     font-size: 1.2rem;
@@ -464,4 +462,10 @@ SP
     .menu-toggle {
         display: none;
     }
+    #post-detail-title {
+        font-size: 1.5rem; /* タイトルのフォントサイズを小さく */
+    }
+
+    #post-detail-text {
+        padding: 20px; /* テキストのパディングを調整 */
 }
