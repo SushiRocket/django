@@ -52,7 +52,7 @@
       <div class="content wrapper">
         <div class="content-top">
           Notes
-        </div>    
+        </div>
         <section class="item">
           <h3 class="footer-title">About</h3>
           <p>
@@ -70,11 +70,11 @@
         <section class="item">
           <h3 class="footer-title">Menu</h3>
           <ul class="menu-list">
-            <li><a href="#">NEW</a></li>
-            <li><a href="#">CATEGORY</a></li>
-            <li><a href="#">COLUMN</a></li>
-            <li><a href="#">SERIES</a></li>
-            <li><a href="#">Q&A</a></li>
+            <li><a href="#main-container">NEW</a></li>
+            <li><a href="#category-container">CATEGORY</a></li>
+            <li><a href="#pick-up-container">PICK-UP</a></li>
+            <li><a href="#ranking-container">RANKING</a></li>
+            <li><a href="#scene-container">Scene</a></li>
           </ul>
         </section>
 
@@ -88,6 +88,17 @@
       <p class="copyright">&copy Notes</p>
     </footer>
 
-
+    <script>
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault(); // デフォルトの動作をキャンセル
+          const target = document.querySelector(this.getAttribute('href'));
+          target.scrollIntoView({
+            behavior: 'smooth', // スムーズなスクロールを適用
+            block: 'start' // 要素の先頭までスクロール
+          });
+        });
+      });
+    </script>
 </body>
 </html>

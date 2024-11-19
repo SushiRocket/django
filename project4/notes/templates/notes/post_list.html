@@ -94,6 +94,39 @@
           </div>
         </section>
       </div>
+      <div id="ranking-container">
+        <section class="ranking wrapper">
+          <div class="ranking-top">
+            Ranking
+          </div>
+          <div class="ranking-subtop">
+            人気の記事
+          </div>
+          <div>
+            <h3 class="section-title">カテゴリ一覧</h3>
+            {% for category in category_list %}
+            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+      <div id="scene-container">
+        <section class="scene wrapper">
+          <div class="scene-top">
+            Scene
+          </div>
+          <div class="scene-subtop">
+            シーンや気持ちで探す
+          </div>
+          <div>
+            <h3 class="section-title">カテゴリ一覧</h3>
+            {% for category in category_list %}
+            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
+            {% endfor %}
+          </div>
+        </section>
+      </div>
+
     </aside>
   </div>
 
