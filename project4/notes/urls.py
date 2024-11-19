@@ -1,5 +1,6 @@
 from django.urls import path
 from.import views
+from django.views.generic import TemplateView
 
 app_name = 'notes'
 
@@ -9,5 +10,6 @@ urlpatterns = [
     path('detail/<int:pk>/',views.DetailView.as_view(),name='detail'),
     path('comment/<int:post_pk>/',views.CommentView.as_view(),name='comment'),
     path('about/',views.AboutView.as_view(),name='about'),
-
+    path('contact/',views.ContactView.as_view(),name='contact'),
+    path('contact_success/', TemplateView.as_view(template_name='notes/contact_success.html'),name='contact_success'),
 ]
