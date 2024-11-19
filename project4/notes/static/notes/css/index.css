@@ -342,26 +342,26 @@ padding-bottom: 120px;
 }
 /*Rankingについて
 ------------------------------------------*/
-#Ranking-container {
+#ranking-container {
     background-color: #eeeeee;
     padding-top: 40px;
     padding-bottom: 120px;
 }
-.Ranking-top {
+.ranking-top {
     display: inline-block;
     width: 100%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
-.Ranking-subtop {
+.ranking-subtop {
     display: inline-block;
     width: 100%;
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 0.75rem;
 }
-.Ranking {
+.ranking {
     text-align: center;
     padding-bottom: 70px;
 }
