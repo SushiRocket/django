@@ -368,6 +368,35 @@ padding-bottom: 120px;
 .section-title {
     font-size: 1.2rem;
 }
+/*Sceneについて
+------------------------------------------*/
+#Scene-container {
+    background-color: #F0A15E;
+    padding-top: 40px;
+    padding-bottom: 120px;
+}
+.Scene-top {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.Scene-subtop {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.75rem;
+}
+.Scene {
+    text-align: center;
+    padding-bottom: 70px;
+}
+.section-title {
+    font-size: 1.2rem;
+}
+
 /*footerについて
 ------------------------------------------*/
 #footer {
