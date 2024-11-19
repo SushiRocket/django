@@ -1,9 +1,10 @@
 from django.db.models import Q
-from django.shortcuts import get_object_or_404,redirect
+from django.shortcuts import get_object_or_404,redirect,render
 from django.views import generic
 from django.views.generic import TemplateView
-from.forms import CommentCreateForm
+from.forms import CommentCreateForm,ContactForm
 from .models import Post,Category,Comment
+from django.core.mail import send_mail
 
 
 class IndexView(generic.ListView):
@@ -42,6 +43,29 @@ class CommentView(generic.CreateView):
         comment.save()
         return redirect('notes:detail',pk=post_pk)
 
-
 class AboutView(TemplateView):
     template_name = 'notes/about.html'
+
+
+def ContactView(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            send_mail(
+                '新しいお問い合わせ',
+                f'名前: {name}\nメールアドレス: {email}\nメッセージ: {message}',
+                email,
+                ['support@example.com'],
+                fail_silently=False,
+            )
+
+            return redirect('notes/contact_success.html')
+
+    else:
+        form = ContactForm()
+
+    return render(request, 'notes/contact_form.html', {'form': form})
