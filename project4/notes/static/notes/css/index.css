@@ -370,26 +370,26 @@ padding-bottom: 120px;
 }
 /*Sceneについて
 ------------------------------------------*/
-#Scene-container {
+#scene-container {
     background-color: #F0A15E;
     padding-top: 40px;
     padding-bottom: 120px;
 }
-.Scene-top {
+.scene-top {
     display: inline-block;
     width: 100%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
-.Scene-subtop {
+.scene-subtop {
     display: inline-block;
     width: 100%;
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 0.75rem;
 }
-.Scene {
+.scene {
     text-align: center;
     padding-bottom: 70px;
 }
