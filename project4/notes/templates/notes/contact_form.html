@@ -27,13 +27,18 @@
         <p>送信完了</p>
     </div>
 </div>
-<div class="contact-form-container wrapper">
+<div class="contact-form-container ">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.non_field_errors }}
         {% for field in form %}
             <div class="form-group">
-                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <label for="{{ field.id_for_label }}">
+                    {{ field.label }}
+                    {% if field.field.required %}
+                    <span style="color: red;">*</span>
+                    {% endif %}
+                </label>
                 {{ field }}
                 {{ field.errors }}
             </div>
