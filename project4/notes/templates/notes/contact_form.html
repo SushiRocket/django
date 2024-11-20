@@ -43,7 +43,33 @@
                 {{ field.errors }}
             </div>
         {% endfor %}
-        <button type="submit" class="btn btn-dark">送信</button>
+
+            <div class="terms-container">
+                <p>
+                  以下の「利用規約」および「個人情報の取り扱い」をご確認の上、同意チェック欄にチェックを入れてください。
+                </p>
+                <h4>利用規約</h4>
+                <div class="terms-scroll">
+                    <p>
+                      ここに利用規約の内容を記載します。具体的な内容は法務部門やサービス仕様に基づいて記載してください。
+                    </p>
+                </div>
+                <h4>個人情報の取り扱い</h4>
+                <div class="terms-scroll">
+                    <p>
+                      ここに個人情報取り扱いに関する内容を記載します。個人情報保護方針に基づき、適切な内容を記載してください。
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="agreement" required>
+                    利用規約および個人情報の取り扱いに同意します
+                    <span style="color: red;">*</span>
+                </label>
+            </div>
+            <button type="submit" class="btn btn-dark">送信</button>
     </form>
-    </div>
+</div>
 {% endblock %}

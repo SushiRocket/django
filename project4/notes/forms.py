@@ -21,4 +21,9 @@ class ContactForm(forms.Form):
         label='メールアドレス',
         required=True
         )
-    message = forms.CharField(widget=forms.Textarea,label='メッセージ')
+    message = forms.CharField(
+        widget=forms.Textarea,
+        label='メッセージ',
+        max_length=1000,
+        required=True
+        )
