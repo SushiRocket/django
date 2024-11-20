@@ -1,4 +1,4 @@
-/*について
+/*contact-topについて
 ------------------------------------------*/
 .contact-top-container {
     padding-bottom: 40px;
@@ -45,4 +45,38 @@
   width: 50px;
   height: 2px;
   background-color: #000;
+}
+/*contact-formについて
+------------------------------------------*/
+.contact-form-container {
+    padding: 20px 30px;
+    background-color: #EBE7E7;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+input {
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
 }
