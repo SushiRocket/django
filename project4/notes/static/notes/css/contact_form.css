@@ -1,0 +1,134 @@
+/*contact-topについて
+------------------------------------------*/
+.contact-top-container {
+    padding-bottom: 40px;
+}
+.contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.contact-subtitle {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+}
+.contact-step-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px 0 40px 0;
+}
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.step p {
+    margin: 0 auto;
+}
+.step-circle {
+    width: 30px;
+    height: 30px;
+    background-color: #f4f4f4;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.step-line {
+    width: 50px;
+    height: 2px;
+    background-color: #000;
+}
+/*contact-formについて
+------------------------------------------*/
+.contact-form-container {
+    padding: 20px 30px;
+    background-color: #EBE7E7;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+input {
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+/*terms-containerについて
+------------------------------------------*/
+.terms-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #EBE7E7;
+}
+
+.terms-container h4 {
+    margin-top: 10px;
+    color: #333;
+    font-size: 16px;
+}
+
+/* .terms-scroll: 利用規約がスクロールできるエリア */
+.terms-scroll {
+    max-height: 200px; /* スクロール可能にする高さ */
+    overflow-y: auto; /* 縦方向のスクロールバーを表示 */
+    padding: 10px; /* 内側に余白を追加 */
+    border: 1px solid #ddd; /* 薄いグレーの枠線 */
+    background-color: #EBE7E7; /* 背景色を白に設定 */
+    font-size: 14px; /* フォントサイズ */
+    line-height: 1.6; /* 行間の設定 */
+    color: #666; /* 文字色 */
+}
+
+/* スクロールバーのスタイル */
+.terms-scroll::-webkit-scrollbar {
+    width: 4px; /* スクロールバーの幅 */
+}
+
+/* スクロールバーのつまみ部分のスタイル */
+.terms-scroll::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* つまみ部分の背景色 */
+    border-radius: 4px; /* つまみ部分の角を丸くする */
+}
+
+/* スクロールバーのトラック部分のスタイル */
+.terms-scroll::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* トラック部分の背景色 */
+}
+
+/* .form-group label: ラベルのスタイル */
+.form-group label {
+    display: flex; /* フレックスボックスを使用してラベルを表示 */
+    align-items: center; /* ラベル内の要素を縦方向に中央揃え */
+    font-size: 14px; /* フォントサイズ */
+    color: #333; /* 文字色 */
+}
+.agreement {
+    display: block;
+}
