@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import get_object_or_404,redirect,render
-from django.views import generic
+from django.views import generic,View
 from django.views.generic import TemplateView
 from.forms import CommentCreateForm,ContactForm
 from .models import Post,Category,Comment
@@ -47,8 +47,12 @@ class AboutView(TemplateView):
     template_name = 'notes/about.html'
 
 
-def ContactView(request):
-    if request.method == 'POST':
+class ContactView(View):
+    def get(self,request):
+        form = ContactForm()
+        return render(request, 'notes/contact_form.html', {'form':form})
+
+    def post(self,request):
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
@@ -65,7 +69,7 @@ def ContactView(request):
 
             return redirect('notes/contact_success.html')
 
-    else:
-        form = ContactForm()
+        else:
+            form = ContactForm()
 
-    return render(request, 'notes/contact_form.html', {'form': form})
+            return render(request, 'notes/contact_form.html', {'form': form})
