@@ -1,0 +1,82 @@
+/*contact-topについて
+------------------------------------------*/
+.contact-top-container {
+    padding-bottom: 40px;
+}
+.contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.contact-subtitle {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+}
+.contact-step-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px 0 40px 0;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.step p {
+    margin: 0 auto;
+}
+.step-circle {
+  width: 30px;
+  height: 30px;
+  background-color: #f4f4f4;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.step-line {
+  width: 50px;
+  height: 2px;
+  background-color: #000;
+}
+/*contact-formについて
+------------------------------------------*/
+.contact-form-container {
+    padding: 20px 30px;
+    background-color: #EBE7E7;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+input {
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}

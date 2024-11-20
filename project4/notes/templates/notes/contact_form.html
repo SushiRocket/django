@@ -3,14 +3,18 @@
 {% load static %}
 
 {% block content %}
-<div class="contact-container">
-    <div class="contact-title">
+<div class="contact-top-container">
+    <div class="contact-title ">
         Contact
     </div>
-    <h2>お問い合わせ</h2>
+    <div class="contact-subtitle">
+        お問い合わせ
+    </div>
+</div>
+<div class="contact-step-container">
     <div class="step">
         <div class="step-circle">1</div>
-        <p>お問い合わせ内容の入力</p>
+        <p>内容の入力</p>
     </div>
     <div class="step-line"></div>
     <div class="step">
@@ -23,17 +27,18 @@
         <p>送信完了</p>
     </div>
 </div>
-
-<form action="" method="POST">
-    {% csrf_token %}    
-    {{ form.non_field_errors }}
-    {% for field in form %}
-        <div class="form-group">
-            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
-            {{ field.errors }}
-        </div>
-    {% endfor %}
-    <button type="submit" class="btn btn-dark">送信</button>
-</form>
+<div class="contact-form-container wrapper">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-dark">送信</button>
+    </form>
+    </div>
 {% endblock %}
