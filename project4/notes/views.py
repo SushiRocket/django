@@ -86,9 +86,12 @@ class ContactConfirmView(View):
             '新しいお問い合わせ',
             f'名前: {name}\nメールアドレス: {email}\nメッセージ: {message}',
             email,
-            ['support@example.com'],  # 宛先
+            ['kentamori27@gmail.com'],  # 宛先
             fail_silently=False,
         )
 
         # 送信後に完了画面へリダイレクト
         return redirect('notes:contact_success')
+
+class ContactSuccessView(TemplateView):
+    template_name = 'notes/contact_success.html'
