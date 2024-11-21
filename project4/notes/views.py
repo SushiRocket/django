@@ -56,20 +56,39 @@ class ContactView(View):
         form = ContactForm(request.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
+            company = form.cleaned_data.get('company','')
             email = form.cleaned_data['email']
             message = form.cleaned_data['message']
 
-            send_mail(
-                '新しいお問い合わせ',
-                f'名前: {name}\nメールアドレス: {email}\nメッセージ: {message}',
-                email,
-                ['support@example.com'],
-                fail_silently=False,
-            )
-
-            return redirect('notes/contact_success.html')
+            return render(request,'notes/contact_confirm.html', {
+                'form': form,
+                'name': name,
+                'company':company,
+                'email': email,
+                'message': message,
+            })
 
         else:
             form = ContactForm()
 
             return render(request, 'notes/contact_form.html', {'form': form})
+        
+class ContactConfirmView(View):
+    def post(self, request):
+        # 確認画面で「送信」ボタンが押されたときの処理
+        name = request.POST.get('name')
+        company = request.POST.get('company','')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        # メール送信処理
+        send_mail(
+            '新しいお問い合わせ',
+            f'名前: {name}\nメールアドレス: {email}\nメッセージ: {message}',
+            email,
+            ['support@example.com'],  # 宛先
+            fail_silently=False,
+        )
+
+        # 送信後に完了画面へリダイレクト
+        return redirect('notes:contact_success')

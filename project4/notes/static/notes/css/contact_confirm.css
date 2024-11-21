@@ -46,3 +46,54 @@
     height: 2px;
     background-color: #000;
 }
+/*contact-formについて
+------------------------------------------*/
+.contact-container {
+    padding: 20px 30px 40px 30px;
+    background-color: #EBE7E7;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+.contact-confirm-container p {
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-confirm-container textarea {
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+/*送信ボタンについて
+------------------------------------------*/
+.contact-submit {
+    text-align: center;
+}
+.contact-submit button {
+    padding: 10px 60px;
+    background-color: #000;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.contact-submit button a {
+    color: #ffffff;
+}
