@@ -142,7 +142,9 @@ label {
 .contact-btn button {
     padding: 10px 60px;
     background-color: #000;
-    color: #ffffff;
     border-radius: 15px;
     font-weight: bold;
+}
+.contact-btn button a {
+    color: #ffffff;
 }
