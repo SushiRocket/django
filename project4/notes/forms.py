@@ -13,7 +13,7 @@ class ContactForm(forms.Form):
         max_length=50,
         required=True
         )
-    campany = forms.CharField(
+    company = forms.CharField(
         label='会社名',
         required=False
     )

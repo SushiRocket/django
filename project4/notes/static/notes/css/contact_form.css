@@ -48,7 +48,7 @@
 }
 /*contact-formについて
 ------------------------------------------*/
-.contact-form-container {
+.contact-container {
     padding: 20px 30px 40px 30px;
     background-color: #EBE7E7;
 }
@@ -128,21 +128,20 @@ label {
     margin: 10px auto;
     text-align: center;
 }
-.contact-btn {
-    text-align: center;
-}
 .agreement {
     text-align: center;
     margin-top: 0;
     margin-bottom: 20px;
 }
+/*送信ボタンについて
+------------------------------------------*/
 .contact-btn {
     text-align: center;
 }
 .contact-btn button {
     padding: 10px 60px;
     background-color: #000;
-    color: #ffffff;
     border-radius: 15px;
     font-weight: bold;
+    color: #ffffff;
 }
