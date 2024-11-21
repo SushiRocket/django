@@ -8,6 +8,22 @@ class CommentCreateForm(forms.ModelForm):
         fields = ('name','text')
 
 class ContactForm(forms.Form):
-    name = forms.CharField(label='お名前',max_length=50)
-    email = forms.EmailField(label='メールアドレス')
-    message = forms.CharField(widget=forms.Textarea,label='メッセージ')
+    name = forms.CharField(
+        label='お名前',
+        max_length=50,
+        required=True
+        )
+    campany = forms.CharField(
+        label='会社名',
+        required=False
+    )
+    email = forms.EmailField(
+        label='メールアドレス',
+        required=True
+        )
+    message = forms.CharField(
+        widget=forms.Textarea,
+        label='メッセージ',
+        max_length=1000,
+        required=True
+        )
