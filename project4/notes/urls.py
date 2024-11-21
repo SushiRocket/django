@@ -11,6 +11,6 @@ urlpatterns = [
     path('comment/<int:post_pk>/',views.CommentView.as_view(),name='comment'),
     path('about/',views.AboutView.as_view(),name='about'),
     path('contact/',views.ContactView.as_view(),name='contact_form'),
-    path('contact_confirm/',TemplateView.as_view(template_name='notes/contact_confirm.html'),name='contact_confirm'),
-    path('contact_success/', TemplateView.as_view(template_name='notes/contact_success.html'),name='contact_success'),
+    path('contact_confirm/',views.ContactConfirmView.as_view(),name='contact_confirm'),
+    path('contact_success/', views.ContactSuccessView.as_view(),name='contact_success'),
 ]

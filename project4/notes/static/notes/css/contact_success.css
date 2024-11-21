@@ -46,3 +46,10 @@
     height: 2px;
     background-color: #000;
 }
+.contact-thanks-container  {
+    padding: 40px 20px;
+}
+.contact-thanks-message {
+    text-align: center;
+    font-weight: bold;
+}

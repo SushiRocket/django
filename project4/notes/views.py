@@ -92,3 +92,6 @@ class ContactConfirmView(View):
 
         # 送信後に完了画面へリダイレクト
         return redirect('notes:contact_success')
+
+class ContactSuccessView(TemplateView):
+    template_name = 'notes/contact_success.html'
