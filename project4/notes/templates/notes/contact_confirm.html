@@ -3,7 +3,10 @@
 {% load static %}
 
 {% block content %}
+
 <div class="contact-container">
+    <form action="{% url 'notes:contact_success' %}" method="POST">
+        {% csrf_token %}
     <div class="contact-top-container wrapper">
         <div class="contact-title ">
             Contact

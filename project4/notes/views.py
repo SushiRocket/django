@@ -86,7 +86,7 @@ class ContactConfirmView(View):
             '新しいお問い合わせ',
             f'名前: {name}\nメールアドレス: {email}\nメッセージ: {message}',
             email,
-            ['support@example.com'],  # 宛先
+            ['kentamori27@gmail.com'],  # 宛先
             fail_silently=False,
         )
 
