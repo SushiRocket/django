@@ -3,6 +3,7 @@ from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField('カテゴリ',max_length=30)
+    image = models.ImageField(upload_to='category_images/', blank=True,null=True)
     created_at = models.DateField('作成日',default=timezone.now)
 
     def __str__(self):
