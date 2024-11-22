@@ -304,11 +304,24 @@ padding-bottom: 60px;
 .category {
     text-align: center;
 }
+.category-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
 .category-list {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.4);
-
+    flex: 0 0 calc(33.33% - 20px); /* 3列で表示、アイテム間の間隔分を引く */
+    box-sizing: border-box; /* パディングやマージンを含めて幅を計算 */
+    text-align: center; /* テキストを中央揃え */
+}
+.category-list p {
+    margin: 0;
+}
+.category-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 /*pick-upについて
 ------------------------------------------*/

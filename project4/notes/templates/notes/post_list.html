@@ -70,18 +70,17 @@
           <div class="category-subtop">
             カテゴリから探す
           </div>
-          <div>
-            <h3 class="section-title">カテゴリ一覧</h3>
+          <div class="category-list-container">
             {% for category in category_list %}
             <div class="category-list">
               <a class="" href="{% url 'notes:category' category.pk %}">
                 {% if category.image %}
-                <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                <img class="category-image" src="{{ category.image.url }}" alt="{{ category.name }}">
                 {% else %}
                 <p>画像がありません。</p>
                 {% endif%}
-                {{ category.name }}
               </a>
+              <p>{{ category.name }}</p>
             </div>
             {% endfor %}
           </div>
