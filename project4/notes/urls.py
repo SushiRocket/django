@@ -1,6 +1,8 @@
 from django.urls import path
 from.import views
 from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'notes'
 
@@ -14,3 +16,7 @@ urlpatterns = [
     path('contact_confirm/',views.ContactConfirmView.as_view(),name='contact_confirm'),
     path('contact_success/', views.ContactSuccessView.as_view(),name='contact_success'),
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
