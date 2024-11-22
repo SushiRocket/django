@@ -5,12 +5,12 @@ from django.views.generic import TemplateView
 from.forms import CommentCreateForm,ContactForm
 from .models import Post,Category,Comment
 from django.core.mail import send_mail
-
+import random
 
 class IndexView(generic.ListView):
     model = Post
     paginate_by = 10
-    
+
     def get_queryset(self):
         queryset = Post.objects.order_by('-created_at')
         keyword = self.request.GET.get('keyword')
@@ -18,17 +18,36 @@ class IndexView(generic.ListView):
             queryset = queryset.filter(
                 Q(title__icontains=keyword)|Q(text__icontains=keyword)
             )
+
         return queryset
-    
+
+    def get_context_data(self, **kwargs):
+        # 親クラスのcontextを取得
+        context = super().get_context_data(**kwargs)
+
+        # 投稿リストを取得
+        context['post_list'] = self.get_queryset()
+
+        # ピックアップ記事を取得（ランダムに3件選ぶ）
+        all_pickups = list(Post.objects.order_by('-created_at')[:10])  # 最新10件をリストに変換
+        random_pickups = random.sample(all_pickups, min(len(all_pickups), 3))  # ランダムに3件選択
+        context['pickups'] = random_pickups
+
+        return context
+
+
 class CategoryView(generic.ListView):
     model = Post
     paginate_by = 10
+    template_name = 'notes/post_listhtml'
+    context_object_name = 'post_list'
 
     def get_queryset(self):
         category = get_object_or_404(Category,pk=self.kwargs['pk'])
         queryset = Post.objects.order_by('-created_at').filter(category=category)
+
         return queryset
-    
+
 class DetailView(generic.DetailView):
     model = Post
 
@@ -95,3 +114,4 @@ class ContactConfirmView(View):
 
 class ContactSuccessView(TemplateView):
     template_name = 'notes/contact_success.html'
+
