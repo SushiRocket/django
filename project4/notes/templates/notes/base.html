@@ -41,7 +41,10 @@
             <p>こんにちは、{{ user.username }} さん</p>
           </li>
           <li>
-            <a href="{% url 'logout' %}">ログアウト</a>
+            <form action="{% url 'notes:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">ログアウト</button>
+            </form>
           </li>
           {% else %}
           <li>
