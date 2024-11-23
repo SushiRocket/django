@@ -36,9 +36,21 @@
 
         <!-- ナビゲーションメニュー -->
         <ul class="menu">
+          {% if user.is_authenticated %}
           <li>
-            <a href="{% url 'notes:signup' %}">サインアップ</a>
+            <p>こんにちは、{{ user.username }} さん</p>
           </li>
+          <li>
+            <a href="{% url 'logout' %}">ログアウト</a>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'login' %}">ログイン</a>
+          </li>
+          <li>
+            <a href="{% url 'notes:signup' %}">新規登録</a>
+          </li>
+          {% endif %}
           <li>
             <a href="#">料理</a>
           </li>
