@@ -30,7 +30,7 @@
             </h2>
               {% if post.id in liked_post %}
                 <!-- 既に「いいね」している場合 -->
-                <button class="like-button liked">❤️ <span class="like-count">{{ post.like_count }}</span></button>
+                <button class="like-button liked">❤️<span class="like-count">{{ post.like_count }}</span></button>
               {% else %}
                 <!-- 「いいね」していない場合 -->
                 <button class="like-button">♡ <span class="like-count">{{ post.like_count }}</span></button>
