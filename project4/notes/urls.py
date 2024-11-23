@@ -15,7 +15,7 @@ urlpatterns = [
     path('contact/',views.ContactView.as_view(),name='contact_form'),
     path('contact_confirm/',views.ContactConfirmView.as_view(),name='contact_confirm'),
     path('contact_success/', views.ContactSuccessView.as_view(),name='contact_success'),
-    path('signup/', views.SignUpView.as_view(),name='siginup'),
+    path('signup/', views.SignUpView.as_view(),name='signup'),
     path('like/<int:post_pk>/', views.LikeToggleView.as_view(),name='like_toggle'),
 
 

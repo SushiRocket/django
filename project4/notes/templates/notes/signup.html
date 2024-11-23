@@ -1,0 +1,28 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+<div class="signup-container">
+  <div class="signup-top-container wrapper">
+    <h2>ユーザー登録</h2>
+    <p>ユーザー登録して記事に<span>❤️</span>しよう!</p>
+  </div>
+  <div class="signup-form-container wrapper">
+    <form action="" method="post">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+      {% for field in form %}
+      <div class="form-group">
+        <label for="{{ field.id_for_label }}">
+            {{ field.label }}
+        </label>
+        {{ field }}
+        {{ field.errors }}
+      </div>
+      {% endfor %}
+      <div class="signup-btn">
+        <button type="submit">登録</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
