@@ -1,0 +1,54 @@
+/*signup-containerについて
+------------------------------------------*/
+.signup-container {
+    padding: 20px 30px 40px 30px;
+    background-color: #EBE7E7;
+}
+/*signup-top-containerについて
+------------------------------------------*/
+.signup-top-container {
+    padding-bottom: 40px;
+}
+.signup-top-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.signup-top-container p {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-align: center;
+}
+/*signup-form-containerについて
+------------------------------------------*/
+.form-group {
+    margin-bottom: 30px;
+}
+input {
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+/*登録ボタンについて
+------------------------------------------*/
+.signup-btn {
+    text-align: center;
+}
+.signup-btn button {
+    padding: 10px 60px;
+    background-color: #000;
+    border-radius: 15px;
+    font-weight: bold;
+    color: #ffffff;
+}
