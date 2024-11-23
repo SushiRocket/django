@@ -117,7 +117,7 @@ class ContactConfirmView(View):
 class ContactSuccessView(TemplateView):
     template_name = 'notes/contact_success.html'
 
-class SignUpView(generic,CategoryView):
+class SignUpView(generic.CreateView):
     form_class = SignUpForm
     success_url = reverse_lazy('login')
     template_name = 'notes/signup.html'
