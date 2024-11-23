@@ -3,11 +3,13 @@ from django.shortcuts import get_object_or_404,redirect,render
 from django.views import generic,View
 from django.views.generic import TemplateView
 from.forms import CommentCreateForm,ContactForm
-from .models import Post,Category,Comment
+from .models import Post,Category,Comment,Like
 from django.core.mail import send_mail
 import random
 from.forms import SignUpForm
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
 
 class IndexView(generic.ListView):
     model = Post
@@ -34,6 +36,13 @@ class IndexView(generic.ListView):
         all_pickups = list(Post.objects.order_by('-created_at')[:10])  # 最新10件をリストに変換
         random_pickups = random.sample(all_pickups, min(len(all_pickups), 3))  # ランダムに3件選択
         context['pickups'] = random_pickups
+
+        user = self.request.user
+        if user.is_authenticated:
+            liked_posts = Like.objects.filter(user=user).values_list('post_id', flat=True)
+            context['liked_posts'] = liked_posts
+        else:
+            context['liked_posts'] = []
 
         return context
 
@@ -121,3 +130,24 @@ class SignUpView(generic.CreateView):
     form_class = SignUpForm
     success_url = reverse_lazy('login')
     template_name = 'notes/signup.html'
+
+class LikeToggleView(LoginRequiredMixin,View):
+    def post(self, request, post_id):
+        post = get_object_or_404(Post, id=post_id)
+        user = request.user
+
+        # 既に「いいね」しているか確認
+        like, created = Like.objects.get_or_create(post=post, user=user)
+
+        if not created:
+            # 「いいね」を解除
+            like.delete()
+            result = 'unliked'
+        else:
+            # 「いいね」を追加
+            result = 'liked'
+
+        # 最新の「いいね」数を取得
+        like_count = post.like_count()
+
+        return JsonResponse({'result': result, 'like_count': like_count})

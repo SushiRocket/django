@@ -28,6 +28,15 @@
             <h2 class="article-title">
               <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
             </h2>
+              {% if post.id in liked_post %}
+                <!-- 既に「いいね」している場合 -->
+                <button class="like-button liked">❤️ <span class="like-count">{{ post.like_count }}</span></button>
+              {% else %}
+                <!-- 「いいね」していない場合 -->
+                <button class="like-button">♡ <span class="like-count">{{ post.like_count }}</span></button>
+                <!-- 未ログインユーザーへのメッセージ -->
+                <p><a href="{% url 'login' %}?next={{ request.path }}">ログイン</a>すると「いいね」できます。</p>
+              {% endif %}
           </div>
         {% endfor %}
 
