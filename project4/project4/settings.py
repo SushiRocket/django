@@ -34,7 +34,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'notes.apps.NotesConfig',
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth', # ユーザー認証システム
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

@@ -6,6 +6,8 @@ from.forms import CommentCreateForm,ContactForm
 from .models import Post,Category,Comment
 from django.core.mail import send_mail
 import random
+from.forms import SignUpForm
+from django.urls import reverse_lazy
 
 class IndexView(generic.ListView):
     model = Post
@@ -91,7 +93,7 @@ class ContactView(View):
             form = ContactForm()
 
             return render(request, 'notes/contact_form.html', {'form': form})
-        
+
 class ContactConfirmView(View):
     def post(self, request):
         # 確認画面で「送信」ボタンが押されたときの処理
@@ -115,3 +117,7 @@ class ContactConfirmView(View):
 class ContactSuccessView(TemplateView):
     template_name = 'notes/contact_success.html'
 
+class SignUpView(generic.CreateView):
+    form_class = SignUpForm
+    success_url = reverse_lazy('login')
+    template_name = 'notes/signup.html'
