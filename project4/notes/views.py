@@ -10,6 +10,7 @@ from.forms import SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
+from django.contrib.auth.views import LogoutView
 
 class IndexView(generic.ListView):
     model = Post
@@ -151,3 +152,6 @@ class LikeToggleView(LoginRequiredMixin,View):
         like_count = post.like_count()
 
         return JsonResponse({'result': result, 'like_count': like_count})
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('notes:index')
