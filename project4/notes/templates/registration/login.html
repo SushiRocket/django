@@ -19,11 +19,30 @@
           {{ field.errors }}
         </div>
         {% endfor %}
+        <div class="password-wrapper">
+          <div class="toggle-password">
+            <i class="fa-solid fa-eye" id="togglePassword"></i>
+          </div>
+        </div>
         <div class="login-btn">
           <button type="submit">ログイン</button>
         </div>
       </form>
     </div>
-  </div>
-  
+    <script>
+      document.getElementById('togglePassword').addEventListener('click', function () {
+          var passwordInput = document.getElementById('{{ form.password.id_for_label }}');
+          var icon = this.querySelector('i');
+          if (passwordInput.type === "password") {
+              passwordInput.type = "text";
+              icon.classList.remove('fa-eye');
+              icon.classList.add('fa-eye-slash');
+          } else {
+              passwordInput.type = "password";
+              icon.classList.remove('fa-eye-slash');
+              icon.classList.add('fa-eye');
+          }
+      });
+    </script>
+</div>
 {% endblock %}
