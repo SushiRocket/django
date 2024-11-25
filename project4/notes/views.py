@@ -157,6 +157,9 @@ class LikeToggleView(LoginRequiredMixin,View):
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('notes:index')
 
-class CostomLoginView(LoginView):
+class CustomLoginView(LoginView):
     template_name = 'notes/login.html'
     authentication_form = AuthenticationForm
+
+    def get_success_url(self):
+        return reverse_lazy('notes:index')
