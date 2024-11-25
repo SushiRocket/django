@@ -119,6 +119,13 @@ li {
 }
 /*container-topについて
 ------------------------------------------*/
+.messages {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
 .container-top {
     display: inline-block;
     width: 100%;
