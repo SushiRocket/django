@@ -137,13 +137,13 @@ li {
 ------------------------------------------*/
 #main-container {
 background-color: #eeeeee;
-padding-top: 40px;
-padding-bottom: 120px;
+padding-top: 60px;
+padding-bottom: 60px;
 }
 .article-content {
     text-align: center;
     padding: 1rem 1rem;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
     border: 1px solid rgba(51, 51, 51, 0.1);
     border-radius: 2%;
 }
@@ -227,8 +227,8 @@ padding-bottom: 120px;
 ------------------------------------------*/
 #author-container {
     background-color: #9CD5EA;
-    padding-top: 40px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .author-top {
     display: inline-block;
@@ -246,7 +246,6 @@ padding-bottom: 120px;
 }
 .author {
     text-align: center;
-    padding-bottom: 70px;
 }
 .author img {
     width: 130px;
@@ -285,8 +284,8 @@ padding-bottom: 120px;
 ------------------------------------------*/
 #category-container {
     background-color: #eeeeee;
-    padding-top: 40px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .category-top {
     display: inline-block;
@@ -304,20 +303,32 @@ padding-bottom: 120px;
 }
 .category {
     text-align: center;
-    padding-bottom: 70px;
+}
+.category-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 .category-list {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    border-bottom: 1px solid rgba(51, 51, 51, 0.4);
-
+    flex: 0 0 calc(33.33% - 20px); /* 3列で表示、アイテム間の間隔分を引く */
+    box-sizing: border-box; /* パディングやマージンを含めて幅を計算 */
+    text-align: center; /* テキストを中央揃え */
+}
+.category-list p {
+    margin: 0;
+}
+.category-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 /*pick-upについて
 ------------------------------------------*/
 #pick-up-container {
     background-color: #5FD8AA;
-    padding-top: 40px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .pick-up-top {
     display: inline-block;
@@ -333,19 +344,26 @@ padding-bottom: 120px;
     margin-bottom: 1.5rem;
     font-size: 0.75rem;
 }
-.pick-up {
+.pick-up-list-container {
     text-align: center;
-    padding-bottom: 70px;
 }
-.section-title {
-    font-size: 1.2rem;
+.pick-up-list {
+    padding: 2rem 2rem;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    border-radius: 2%;
+    margin-bottom: 40px;
+}
+.pick-up-list p {
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 /*Rankingについて
 ------------------------------------------*/
 #ranking-container {
     background-color: #eeeeee;
-    padding-top: 40px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .ranking-top {
     display: inline-block;
@@ -363,7 +381,6 @@ padding-bottom: 120px;
 }
 .ranking {
     text-align: center;
-    padding-bottom: 70px;
 }
 .section-title {
     font-size: 1.2rem;
@@ -372,8 +389,8 @@ padding-bottom: 120px;
 ------------------------------------------*/
 #scene-container {
     background-color: #F0A15E;
-    padding-top: 40px;
-    padding-bottom: 120px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .scene-top {
     display: inline-block;
@@ -391,7 +408,6 @@ padding-bottom: 120px;
 }
 .scene {
     text-align: center;
-    padding-bottom: 70px;
 }
 .section-title {
     font-size: 1.2rem;
@@ -410,7 +426,7 @@ padding-bottom: 120px;
 /*contentについて
 ------------------------------------------*/
 footer {
-    padding-top: 40px;
+    padding-top: 60px;
 }
 #footer .content {
     display: flex;

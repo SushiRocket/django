@@ -1,5 +1,15 @@
 from django import forms
 from .models import Comment
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class SignUpForm(UserCreationForm):
+
+    email = forms.EmailField(required=True, label='メールアドレス')
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password1', 'password2')
 
 class CommentCreateForm(forms.ModelForm):
 
@@ -13,7 +23,7 @@ class ContactForm(forms.Form):
         max_length=50,
         required=True
         )
-    campany = forms.CharField(
+    company = forms.CharField(
         label='会社名',
         required=False
     )

@@ -1,0 +1,29 @@
+{% extends 'notes/base.html' %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-top-container wrapper">
+      <h2>ログイン</h2>
+      <p>ログインして記事に<span>❤️</span>しよう!</p>
+    </div>
+    <div class="login-form-container wrapper">
+      <form action="{% url 'notes:login' %}" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <div class="form-group">
+          <label for="{{ field.id_for_label }}">
+              {{ field.label }}
+          </label>
+          {{ field }}
+          {{ field.errors }}
+        </div>
+        {% endfor %}
+        <div class="signup-btn">
+          <button type="submit">ログイン</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+{% endblock %}

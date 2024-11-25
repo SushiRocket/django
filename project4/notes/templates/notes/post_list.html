@@ -28,6 +28,15 @@
             <h2 class="article-title">
               <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
             </h2>
+              {% if post.id in liked_post %}
+                <!-- 既に「いいね」している場合 -->
+                <button class="like-button liked">❤️<span class="like-count">{{ post.like_count }}</span></button>
+              {% else %}
+                <!-- 「いいね」していない場合 -->
+                <button class="like-button">♡ <span class="like-count">{{ post.like_count }}</span></button>
+                <!-- 未ログインユーザーへのメッセージ -->
+                <p><a href="{% url 'login' %}?next={{ request.path }}">ログイン</a>すると「いいね」できます。</p>
+              {% endif %}
           </div>
         {% endfor %}
 
@@ -70,10 +79,18 @@
           <div class="category-subtop">
             カテゴリから探す
           </div>
-          <div>
-            <h3 class="section-title">カテゴリ一覧</h3>
+          <div class="category-list-container">
             {% for category in category_list %}
-            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
+            <div class="category-list">
+              <a class="" href="{% url 'notes:category' category.pk %}">
+                {% if category.image %}
+                <img class="category-image" src="{{ category.image.url }}" alt="{{ category.name }}">
+                {% else %}
+                <p>画像がありません。</p>
+                {% endif%}
+              </a>
+              <p>{{ category.name }}</p>
+            </div>
             {% endfor %}
           </div>
         </section>
@@ -86,11 +103,23 @@
           <div class="pick-up-subtop">
             注目の記事！
           </div>
-          <div>
-            <h3 class="section-title">カテゴリ一覧</h3>
-            {% for category in category_list %}
-            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
-            {% endfor %}
+          <div class="pick-up-list-container">
+            {% if pickups %}
+              {% for pickup in pickups %}
+              <div class="pick-up-list">
+                <a class="" href="{% url 'notes:detail' pickup.pk %}">
+                  {% if pickup.image %}
+                  <img class="pick-up-image" src="{{ pickup.image.url }}" alt="{{ pickup.name }}">
+                  {% else %}
+                  <p>画像がありません。</p>
+                  {% endif %}
+                  </a>
+                <p>#{{ pickup.id}}  {{ pickup.title }}</p>
+              </div>
+              {% endfor %}
+            {% else %}
+              <p>現在、注目の記事はありません。</p>
+            {% endif %}
           </div>
         </section>
       </div>

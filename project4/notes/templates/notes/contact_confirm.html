@@ -1,0 +1,62 @@
+{% extends 'notes/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="contact-container">
+    <form action="{% url 'notes:contact_confirm' %}" method="POST">
+        {% csrf_token %}
+    <div class="contact-top-container wrapper">
+        <div class="contact-title ">
+            Contact
+        </div>
+        <div class="contact-subtitle">
+            お問い合わせ
+        </div>
+    </div>
+    <div class="contact-step-container wrapper">
+        <div class="step">
+            <div class="step-circle">1</div>
+            <p>内容の入力</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+        <div class="step-circle">2</div>
+            <p>入力確認</p>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-circle">3</div>
+            <p>送信完了</p>
+        </div>
+    </div>
+    <div class="contact-confirm-container wrapper">
+        <div class="form-group">
+            <label>名前:</label>
+            <p>{{ name }}</p>
+            <input type="hidden" name="name" value="{{ name }}">
+        </div>
+        <div class="form-group">
+            <label>会社名:</label>
+            <p>{{ company }}</p>
+            <input type="hidden" name="company" value="{{ company }}">
+        </div>
+        <div class="form-group">
+            <label>メールアドレス:</label>
+            <p>{{ email }}</p>
+            <input type="hidden" name="email" value="{{ email }}">
+        </div>
+        <div class="form-group">
+            <label>メッセージ:</label>
+            <p>{{ message }}</p>
+            <input type="hidden" name="message" value="{{ message }}">
+        </div>
+        <div class="contact-submit">
+            <h4>入力内容に間違えはないでしょうか。</h4>
+            <button class="contact-submit-button" type="submit">送信</button>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

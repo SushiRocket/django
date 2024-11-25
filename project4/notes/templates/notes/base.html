@@ -12,6 +12,9 @@
     {% block extra_css %}
     <link rel="stylesheet" href="{% static 'notes/css/detail.css' %}">
     <link rel="stylesheet" href="{% static 'notes/css/contact_form.css' %}">
+    <link rel="stylesheet" href="{% static 'notes/css/contact_confirm.css' %}">
+    <link rel="stylesheet" href="{% static 'notes/css/contact_success.css' %}">
+    <link rel="stylesheet" href="{% static 'notes/css/signup.css' %}">
     {% endblock %}
 
 
@@ -33,6 +36,24 @@
 
         <!-- ナビゲーションメニュー -->
         <ul class="menu">
+          {% if user.is_authenticated %}
+          <li>
+            <p>こんにちは、{{ user.username }} さん</p>
+          </li>
+          <li>
+            <form action="{% url 'notes:logout' %}" method="post">
+              {% csrf_token %}
+              <button type="submit">ログアウト</button>
+            </form>
+          </li>
+          {% else %}
+          <li>
+            <a href="{% url 'login' %}">ログイン</a>
+          </li>
+          <li>
+            <a href="{% url 'notes:signup' %}">新規登録</a>
+          </li>
+          {% endif %}
           <li>
             <a href="#">料理</a>
           </li>
@@ -63,7 +84,7 @@
             テキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト
           </p>
           <ul class="about-list">
-            <li><a href="#" class="arrow">プロフィール詳細</a></li>
+            <li><a href="#" class="{% url 'notes:about' %}">プロフィール詳細</a></li>
             <li><a href="{% url 'notes:contact_form' %}" class="arrow">お問い合わせ</a></li>
           </ul>
         </section>
