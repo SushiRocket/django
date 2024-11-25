@@ -10,7 +10,8 @@ from.forms import SignUpForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
-from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView,LoginView
+from django.contrib.auth.forms import AuthenticationForm
 
 class IndexView(generic.ListView):
     model = Post
@@ -155,3 +156,7 @@ class LikeToggleView(LoginRequiredMixin,View):
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('notes:index')
+
+class CostomLoginView(LoginView):
+    template_name = 'notes/login.html'
+    authentication_form = AuthenticationForm
