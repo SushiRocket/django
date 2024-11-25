@@ -12,6 +12,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
 from django.contrib.auth.views import LogoutView,LoginView
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 class IndexView(generic.ListView):
     model = Post
@@ -160,6 +161,12 @@ class CustomLogoutView(LogoutView):
 class CustomLoginView(LoginView):
     template_name = 'notes/login.html'
     authentication_form = AuthenticationForm
+
+    def form_valid(self, form):
+        
+        messages.success(self.request, 'ログインに成功しました！')
+
+        return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('notes:index')

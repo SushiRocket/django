@@ -5,6 +5,15 @@
 <div id="container">
   <div id="main-container">
     <main id="main" class="wrapper">
+      
+      {% if messages %}
+      <div class="messages">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+
       <div class="container-top">
         What's New?
       </div>
