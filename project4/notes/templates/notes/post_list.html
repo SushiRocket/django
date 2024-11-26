@@ -144,11 +144,23 @@
           <div class="ranking-subtop">
             人気の記事
           </div>
-          <div>
-            <h3 class="section-title">カテゴリ一覧</h3>
-            {% for category in category_list %}
-            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
-            {% endfor %}
+          <div class="ranking-list-container">
+            {% if ranked_posts %}
+              {% for post in ranked_posts %}
+              <div class="ranking-list">
+                <a class="" href="{% url 'notes:detail' post.pk %}">
+                  {% if post.image %}
+                  <img class="ranking-image" src="{{ post.image.url }}" alt="{{ post.name }}">
+                  {% else %}
+                  <p>画像がありません。</p>
+                  {% endif %}
+                  </a>
+                <p>#{{ post.id}}  {{ post.title }}</p>
+              </div>
+              {% endfor %}
+            {% else %}
+              <p>現在、ランキング記事はありません。</p>
+            {% endif %}
           </div>
         </section>
       </div>
