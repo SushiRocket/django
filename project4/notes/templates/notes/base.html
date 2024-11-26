@@ -111,17 +111,7 @@
       <p class="copyright">&copy Notes</p>
     </footer>
 
-    <script>
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault(); // デフォルトの動作をキャンセル
-          const target = document.querySelector(this.getAttribute('href'));
-          target.scrollIntoView({
-            behavior: 'smooth', // スムーズなスクロールを適用
-            block: 'start' // 要素の先頭までスクロール
-          });
-        });
-      });
-    </script>
+    {% block extra_js %}
+    {% endblock %}
 </body>
 </html>

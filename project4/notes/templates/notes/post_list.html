@@ -39,10 +39,14 @@
             </h2>
               {% if post.id in liked_post %}
                 <!-- 既に「いいね」している場合 -->
-                <button class="like-button liked">❤️<span class="like-count">{{ post.like_count }}</span></button>
+                <button class="like-button liked" data-post-id="{{ post.id }}">
+                  ❤️<span class="like-count">{{ post.like_count }}</span>
+                </button>
               {% else %}
                 <!-- 「いいね」していない場合 -->
-                <button class="like-button">♡ <span class="like-count">{{ post.like_count }}</span></button>
+                <button class="like-button" data-post-id="{{ post.id }}">
+                  ♡ <span class="like-count">{{ post.like_count }}</span>
+                </button>
                 <!-- 未ログインユーザーへのメッセージ -->
                 <p><a href="{% url 'login' %}?next={{ request.path }}">ログイン</a>すると「いいね」できます。</p>
               {% endif %}
@@ -168,4 +172,68 @@
     </aside>
   </div>
 
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const likeButtons = document.querySelectorAll('.like-button');
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const postId = this.getAttribute('data-post-id');
+            console.log('Post ID:', postId);  // デバッグ用ログ
+
+            if (!postId) {
+                console.error('Post ID is missing!');
+                return;
+            }
+
+            const csrfToken = getCookie('csrftoken');
+
+            fetch(`/like-toggle/${postId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({}),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.result === 'liked') {
+                    this.innerHTML = '❤️ <span class="like-count">' + data.like_count + '</span>';
+                } else {
+                    this.innerHTML = '♡ <span class="like-count">' + data.like_count + '</span>';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+
+    // CSRFトークンを取得する関数
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Cookieがname=の形式か確認
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+});
+</script>
 {% endblock %}
