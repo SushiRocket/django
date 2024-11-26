@@ -49,7 +49,6 @@ class IndexView(generic.ListView):
 
         return context
 
-
 class CategoryView(generic.ListView):
     model = Post
     paginate_by = 10
@@ -64,6 +63,13 @@ class CategoryView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Post
+
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs)
+        post = self.get_object()
+        post.views += 1
+        post.save()
+        return response
 
 class CommentView(generic.CreateView):
     model = Comment
