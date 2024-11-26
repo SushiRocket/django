@@ -1,4 +1,4 @@
-from django.db.models import Q
+from django.db.models import Q,Count
 from django.shortcuts import get_object_or_404,redirect,render
 from django.views import generic,View
 from django.views.generic import TemplateView
@@ -169,10 +169,19 @@ class CustomLoginView(LoginView):
     authentication_form = AuthenticationForm
 
     def form_valid(self, form):
-        
+
         messages.success(self.request, 'ログインに成功しました！')
 
         return super().form_valid(form)
 
     def get_success_url(self):
         return reverse_lazy('notes:index')
+
+class LikeRankView(generic.ListView):
+    model = Post
+    template_name = 'notes/base.html'
+    context_object_name = 'ranked_post'
+    ordering = ['-like_count']
+
+    def get_queryset(self):
+        return Post.objects.annotate(like_count=Count('like')).order_by('-like_count') #(<新しいフィールド名>=<計算式>)
