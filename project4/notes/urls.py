@@ -18,7 +18,7 @@ urlpatterns = [
     path('signup/', views.SignUpView.as_view(),name='signup'),
     path('logout/', views.CustomLogoutView.as_view(),name='logout'),
     path('login/',views.CustomLoginView.as_view(),name='login'),
-    path('like/<int:post_pk>/', views.LikeToggleView.as_view(),name='like_toggle'),
+    path('like-toggle/<int:post_id>/', views.LikeToggleView.as_view(),name='like_toggle'),
 ]
 
 
