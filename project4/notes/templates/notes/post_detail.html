@@ -14,6 +14,7 @@
     <div id="post-detail-created_at">
       {{ post.created_at|date:"Y.m.d"}} / {{ post.category }}
     </div>
+    <p>観覧数: {{ post.views }}</p> <!-- 観覧数を表示 -->
     <div id="post-detail-text">
       {{ post.text|linebreaksbr }}
     </div>

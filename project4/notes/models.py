@@ -17,7 +17,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='著者', null=True, blank=True)
     created_at = models.DateTimeField('作成日',default=timezone.now)
     category = models.ForeignKey(Category,verbose_name='カテゴリ',on_delete=models.PROTECT)
-    views = models.PositiveIntegerField(default=0)
+    views = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return self.title
