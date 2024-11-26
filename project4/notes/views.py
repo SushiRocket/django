@@ -179,9 +179,9 @@ class CustomLoginView(LoginView):
 
 class LikeRankView(generic.ListView):
     model = Post
-    template_name = 'notes/base.html'
-    context_object_name = 'ranked_post'
+    template_name = 'notes/post_list.html'
+    context_object_name = 'ranked_posts'
     ordering = ['-like_count']
 
     def get_queryset(self):
-        return Post.objects.annotate(like_count=Count('like')).order_by('-like_count') #(<新しいフィールド名>=<計算式>)
+        return Post.objects.annotate(like_count=Count('likes')).order_by('-like_count') #(<新しいフィールド名>=<計算式>)
