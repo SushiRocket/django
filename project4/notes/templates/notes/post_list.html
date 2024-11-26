@@ -150,7 +150,7 @@
               <div class="ranking-list">
                 <a class="" href="{% url 'notes:detail' post.pk %}">
                   {% if post.image %}
-                  <img class="ranking-image" src="{{ post.image.url }}" alt="{{ post.name }}">
+                  <img class="ranking-image" src="{{ post.image.url }}" alt="{{ post.title }}">
                   {% else %}
                   <p>画像がありません。</p>
                   {% endif %}
