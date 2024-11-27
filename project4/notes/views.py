@@ -47,6 +47,9 @@ class IndexView(generic.ListView):
         else:
             context['liked_posts'] = []
 
+        ranked_posts = Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count') #(<新しいフィールド名>=<計算式>)
+        context['ranked_posts'] = ranked_posts
+
         return context
 
 class CategoryView(generic.ListView):
@@ -157,9 +160,9 @@ class LikeToggleView(LoginRequiredMixin,View):
             result = 'liked'
 
         # 最新の「いいね」数を取得
-        like_count = post.like_count()
+        likes_count = post.likes_count()
 
-        return JsonResponse({'result': result, 'like_count': like_count})
+        return JsonResponse({'result': result, 'likes_count': likes_count})
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('notes:index')
@@ -176,12 +179,3 @@ class CustomLoginView(LoginView):
 
     def get_success_url(self):
         return reverse_lazy('notes:index')
-
-class LikeRankView(generic.ListView):
-    model = Post
-    template_name = 'notes/post_list.html'
-    context_object_name = 'ranked_posts'
-    ordering = ['-like_count']
-
-    def get_queryset(self):
-        return Post.objects.annotate(like_count=Count('likes')).order_by('-like_count') #(<新しいフィールド名>=<計算式>)

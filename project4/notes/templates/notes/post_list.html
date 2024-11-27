@@ -40,14 +40,16 @@
               {% if post.id in liked_post %}
                 <!-- 既に「いいね」している場合 -->
                 <button class="like-button liked" data-post-id="{{ post.id }}">
-                  ❤️<span class="like-count">{{ post.like_count }}</span>
+                  ❤️<span class="like-count">{{ post.likes_count }}</span>
                 </button>
               {% else %}
                 <!-- 「いいね」していない場合 -->
                 <button class="like-button" data-post-id="{{ post.id }}">
-                  ♡ <span class="like-count">{{ post.like_count }}</span>
+                  ♡ <span class="like-count">{{ post.likes_count }}</span>
                 </button>
-                <!-- 未ログインユーザーへのメッセージ -->
+              {% endif %}
+              {% if not user.is_authenticated %}
+                <!-- 未ログインユーザーへメッセージ -->
                 <p><a href="{% url 'login' %}?next={{ request.path }}">ログイン</a>すると「いいね」できます。</p>
               {% endif %}
           </div>
@@ -128,6 +130,7 @@
                   {% endif %}
                   </a>
                 <p>#{{ pickup.id}}  {{ pickup.title }}</p>
+                <p>観覧数: {{ pickup.views }}</p>
               </div>
               {% endfor %}
             {% else %}
@@ -146,16 +149,17 @@
           </div>
           <div class="ranking-list-container">
             {% if ranked_posts %}
-              {% for post in ranked_posts %}
+              {% for ranked_post in ranked_posts %}
               <div class="ranking-list">
-                <a class="" href="{% url 'notes:detail' post.pk %}">
-                  {% if post.image %}
-                  <img class="ranking-image" src="{{ post.image.url }}" alt="{{ post.title }}">
+                <a class="" href="{% url 'notes:detail' ranked_post.pk %}">
+                  {% if ranked_post.image %}
+                  <img class="ranking-image" src="{{ ranked_post.image.url }}" alt="{{ ranked_post.title }}">
                   {% else %}
                   <p>画像がありません。</p>
                   {% endif %}
                   </a>
-                <p>#{{ post.id}}  {{ post.title }}</p>
+                <p>#{{ ranked_post.id}}  {{ ranked_post.title }}</p>
+                <p>いいね数 : {{ ranked_post.likes_count }}</p>
               </div>
               {% endfor %}
             {% else %}
@@ -219,9 +223,11 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .then(data => {
                 if (data.result === 'liked') {
-                    this.innerHTML = '❤️ <span class="like-count">' + data.like_count + '</span>';
+                    this.innerHTML = '❤️ <span class="like-count">' + data.likes_count + '</span>';
+                    this.classList.add('liked');
                 } else {
-                    this.innerHTML = '♡ <span class="like-count">' + data.like_count + '</span>';
+                    this.innerHTML = '♡ <span class="like-count">' + data.likes_count + '</span>';
+                    this.classList.remove('liked');
                 }
             })
             .catch(error => {
