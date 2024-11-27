@@ -160,9 +160,9 @@ class LikeToggleView(LoginRequiredMixin,View):
             result = 'liked'
 
         # 最新の「いいね」数を取得
-        like_count = post.like_count()
+        likes_count = post.likes_count()
 
-        return JsonResponse({'result': result, 'like_count': like_count})
+        return JsonResponse({'result': result, 'likes_count': likes_count})
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('notes:index')

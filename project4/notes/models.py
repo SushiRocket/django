@@ -22,7 +22,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    def like_count(self):
+    def likes_count(self):
         return self.likes.count()
 
 class Comment(models.Model):
