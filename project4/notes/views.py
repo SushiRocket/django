@@ -184,4 +184,4 @@ class LikeRankView(generic.ListView):
     ordering = ['-like_count']
 
     def get_queryset(self):
-        return Post.objects.annotate(like_count=Count('likes')).order_by('-like_count') #(<新しいフィールド名>=<計算式>)
+        return Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count') #(<新しいフィールド名>=<計算式>)
