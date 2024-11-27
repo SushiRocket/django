@@ -146,16 +146,16 @@
           </div>
           <div class="ranking-list-container">
             {% if ranked_posts %}
-              {% for post in ranked_posts %}
+              {% for ranked_post in ranked_posts %}
               <div class="ranking-list">
-                <a class="" href="{% url 'notes:detail' post.pk %}">
-                  {% if post.image %}
-                  <img class="ranking-image" src="{{ post.image.url }}" alt="{{ post.title }}">
+                <a class="" href="{% url 'notes:detail' ranked_post.pk %}">
+                  {% if ranked_post.image %}
+                  <img class="ranking-image" src="{{ ranked_post.image.url }}" alt="{{ ranked_post.title }}">
                   {% else %}
                   <p>画像がありません。</p>
                   {% endif %}
                   </a>
-                <p>#{{ post.id}}  {{ post.title }}</p>
+                <p>#{{ ranked_post.id}}  {{ ranked_post.title }}</p>
               </div>
               {% endfor %}
             {% else %}
