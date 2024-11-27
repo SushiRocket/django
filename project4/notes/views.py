@@ -55,7 +55,7 @@ class IndexView(generic.ListView):
 class CategoryView(generic.ListView):
     model = Post
     paginate_by = 10
-    template_name = 'notes/post_listhtml'
+    template_name = 'notes/post_list.html'
     context_object_name = 'post_list'
 
     def get_queryset(self):
@@ -63,6 +63,31 @@ class CategoryView(generic.ListView):
         queryset = Post.objects.order_by('-created_at').filter(category=category)
 
         return queryset
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        category = get_object_or_404(Category, pk=self.kwargs['pk'])
+        context['category'] = category
+
+        all_pickups = list(Post.objects.order_by('-created_at')[:10])
+        random_pickups = random.sample(all_pickups, min(len(all_pickups), 3))
+        context['pickups'] = random_pickups
+
+        context['ranked_posts'] = Post.objects.annotate(likes_count=Count('likes')).order_by('-likes_count')[:3]
+
+        context['all_categories'] = Category.objects.all()
+
+        user = self.request.user
+        if user.is_authenticated:
+            liked_posts = Like.objects.filter(user=user).values_list('post_id', flat=True)
+            context['liked_posts'] = list(liked_posts)
+        else:
+            context['liked_posts'] = []
+
+        context['current_sort'] = self.request.GET.get('sort', 'created_at')
+
+        return context
 
 class DetailView(generic.DetailView):
     model = Post
