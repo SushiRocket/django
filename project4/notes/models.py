@@ -19,7 +19,7 @@ class Post(models.Model):
     created_at = models.DateTimeField('作成日',default=timezone.now)
     category = models.ForeignKey(Category,verbose_name='カテゴリ',on_delete=models.PROTECT)
     views = models.PositiveIntegerField(default=1)
-    tags = TaggableManager
+    tags = TaggableManager()
 
     def __str__(self):
         return self.title

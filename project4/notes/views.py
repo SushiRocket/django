@@ -13,10 +13,14 @@ from django.http import JsonResponse
 from django.contrib.auth.views import LogoutView,LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from taggit.models import Tag
+from django.contrib.contenttypes.models import ContentType
 
 class IndexView(generic.ListView):
     model = Post
     paginate_by = 10
+    context_object_name = 'post_list'
+
 
     def get_queryset(self):
         queryset = Post.objects.order_by('-created_at')
@@ -32,8 +36,15 @@ class IndexView(generic.ListView):
         # 親クラスのcontextを取得
         context = super().get_context_data(**kwargs)
 
-        # 投稿リストを取得
-        context['post_list'] = self.get_queryset()
+        # タグの取得
+        post_list = context['post_list']
+        post_ids = post_list.values_list('id', flat=True)
+        post_content_type = ContentType.objects.get_for_model(Post)
+
+        context['tags'] = Tag.objects.filter(
+            taggit_taggeditem_items__content_type=post_content_type,
+            taggit_taggeditem_items__object_id__in=post_ids
+        ).distinct()
 
         # ピックアップ記事を取得（ランダムに3件選ぶ）
         all_pickups = list(Post.objects.order_by('-created_at')[:10])  # 最新10件をリストに変換
