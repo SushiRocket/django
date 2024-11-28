@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
+
 class Category(models.Model):
     name = models.CharField('カテゴリ',max_length=30)
     image = models.ImageField(upload_to='category_images/', blank=True,null=True)
@@ -19,7 +20,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category,verbose_name='カテゴリ',on_delete=models.PROTECT)
     views = models.PositiveIntegerField(default=1)
     tags = TaggableManager
-    
+
     def __str__(self):
         return self.title
 
