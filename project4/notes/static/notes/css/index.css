@@ -1,6 +1,5 @@
 /*共通のcss
 ------------------------------------------*/
-
 @charset 'UTF-8';
 * {
     box-sizing: border-box;
@@ -173,8 +172,8 @@ padding-bottom: 60px;
     padding-right: 5px;
 }
 .article-title {
-    font-size: 1.5rem;
-    margin: 1rem 0 1rem 0;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 #main p {
     font-size: 0.75rem;
@@ -337,6 +336,24 @@ padding-bottom: 60px;
     padding-top: 60px;
     padding-bottom: 60px;
 }
+.pick-up-list ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+.pick-up-views {
+    writing-mode: vertical-rl; /* 縦書き表示 */
+    width: 8%;
+    white-space: nowrap; /* テキストが折り返されないように設定 */
+    overflow: hidden; /* はみ出しを非表示 */
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.pick-up-image {
+    width: 90%;
+    padding-right: 5px;
+}
 .pick-up-top {
     display: inline-block;
     width: 100%;
@@ -361,9 +378,8 @@ padding-bottom: 60px;
     margin-bottom: 40px;
 }
 .pick-up-list p {
-    font-weight: bold;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
 /*Rankingについて
 ------------------------------------------*/
@@ -371,6 +387,24 @@ padding-bottom: 60px;
     background-color: #eeeeee;
     padding-top: 60px;
     padding-bottom: 60px;
+}
+.ranking-list ul {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+.ranking-likes {
+    writing-mode: vertical-rl; /* 縦書き表示 */
+    width: 8%;
+    white-space: nowrap; /* テキストが折り返されないように設定 */
+    overflow: hidden; /* はみ出しを非表示 */
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+.ranking-image {
+    width: 90%;
+    padding-right: 5px;
 }
 .ranking-top {
     display: inline-block;
@@ -396,10 +430,10 @@ padding-bottom: 60px;
     margin-bottom: 40px;
 }
 .ranking-list p {
-    font-weight: bold;
-    margin-top: 0px;
-    margin-bottom: 10px;
+    font-size: 0.75rem;
+    margin: 0.5rem 0 0.5rem 0;
 }
+
 /*Sceneについて
 ------------------------------------------*/
 #scene-container {

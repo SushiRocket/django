@@ -22,6 +22,7 @@
       </div>
       {% for post in post_list %}
           <div class="article-content">
+            <a href="{% url 'notes:detail' post.pk %}" >
             <ul>
               <li id="post-created-at">
                 <p>{{ post.created_at|date:"Y.m.d"}}</p>
@@ -35,8 +36,9 @@
               </li>
             </ul>
             <h2 class="article-title">
-              <a href="{% url 'notes:detail' post.pk %}" class="btn btn-dark">{{ post.title }}</a>
+              {{ post.title }}
             </h2>
+            </a>
               {% if post.id in liked_post %}
                 <!-- 既に「いいね」している場合 -->
                 <button class="like-button liked" data-post-id="{{ post.id }}">
@@ -123,14 +125,20 @@
               {% for pickup in pickups %}
               <div class="pick-up-list">
                 <a class="" href="{% url 'notes:detail' pickup.pk %}">
-                  {% if pickup.image %}
-                  <img class="pick-up-image" src="{{ pickup.image.url }}" alt="{{ pickup.name }}">
-                  {% else %}
-                  <p>画像がありません。</p>
-                  {% endif %}
-                  </a>
+                <ul>
+                  <li class="pick-up-views">
+                    <p>観覧数 : {{ pickup.views }}</p>
+                  </li>
+                  <li class="pick-up-image">
+                      {% if pickup.image %}
+                      <img class="" src="{{ pickup.image.url }}" alt="{{ pickup.name }}">
+                      {% else %}
+                      <p>画像がありません。</p>
+                      {% endif %}
+                  </li>
+                </ul>
                 <p>#{{ pickup.id}}  {{ pickup.title }}</p>
-                <p>観覧数: {{ pickup.views }}</p>
+                </a>
               </div>
               {% endfor %}
             {% else %}
@@ -152,14 +160,20 @@
               {% for ranked_post in ranked_posts %}
               <div class="ranking-list">
                 <a class="" href="{% url 'notes:detail' ranked_post.pk %}">
-                  {% if ranked_post.image %}
-                  <img class="ranking-image" src="{{ ranked_post.image.url }}" alt="{{ ranked_post.title }}">
-                  {% else %}
-                  <p>画像がありません。</p>
-                  {% endif %}
-                  </a>
+                <ul>
+                  <li class="ranking-likes">
+                    <p>いいね数 : {{ ranked_post.likes_count }}</p>
+                  </li>
+                  <li class="ranking-image">
+                    {% if ranked_post.image %}
+                    <img src="{{ ranked_post.image.url }}" alt="{{ ranked_post.title }}">
+                    {% else %}
+                    <p>画像がありません。</p>
+                    {% endif %}
+                  </li>
+                </ul>
                 <p>#{{ ranked_post.id}}  {{ ranked_post.title }}</p>
-                <p>いいね数 : {{ ranked_post.likes_count }}</p>
+                </a>
               </div>
               {% endfor %}
             {% else %}
