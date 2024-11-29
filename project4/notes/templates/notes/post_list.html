@@ -190,11 +190,20 @@
           <div class="scene-subtop">
             シーンや気持ちで探す
           </div>
-          <div>
-            <h3 class="section-title">カテゴリ一覧</h3>
-            {% for category in category_list %}
-            <div class="category-list"><a class="" href="{% url 'notes:category' category.pk %}">{{ category }}</a></div>
-            {% endfor %}
+          <div class="tags-list-container">
+            {% if tags %}
+              <div class="tag-list">
+                <ul>
+                    {% for tag in tags %}
+                    <li class="tag">
+                      <a class="" href="#">{{ tag.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            {% else %}
+              <p>現在、ランキング記事はありません。</p>
+            {% endif %}
           </div>
         </section>
       </div>
