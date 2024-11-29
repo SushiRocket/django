@@ -19,6 +19,7 @@ urlpatterns = [
     path('logout/', views.CustomLogoutView.as_view(),name='logout'),
     path('login/',views.CustomLoginView.as_view(),name='login'),
     path('like-toggle/<int:post_id>/', views.LikeToggleView.as_view(),name='like_toggle'),
+    path('tagged/<int:pk>/', views.TaggedPostView.as_view(),name='post_tagged'),
 ]
 
 
