@@ -1,0 +1,47 @@
+{% extends 'notes/base.html' %}
+{% load static %}
+
+{% block content %}
+<div id="category-container">
+    <section class="category wrapper">
+      <div class="category-top">
+        Category
+      </div>
+      <div class="category-subtop">
+        カテゴリから探す
+      </div>
+      <div class="category-list-container">
+        {% for category in category_list %}
+        <div class="category-list">
+          <a class="" href="{% url 'notes:category' category.pk %}">
+            {% if category.image %}
+            <img class="category-image" src="{{ category.image.url }}" alt="{{ category.name }}">
+            {% else %}
+            <p>画像がありません。</p>
+            {% endif%}
+          </a>
+          <p>{{ category.name }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+</div>
+
+<div id="related-posts-container">
+    <section class="related-posts wrapper">
+        <h2>カテゴリー "{{ category.name }}" の投稿一覧</h2>
+        <div class="post-list">
+        {% if category %}
+            {% for post in post_list %}
+                <div class="post-item">
+                    <h3><a href="{% url 'notes:detail' post.pk %}">{{ post.title }}</a></h3>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>このカテゴリーには投稿がありません。</p>
+        {% endif %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}
