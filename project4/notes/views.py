@@ -100,6 +100,12 @@ class CategoryView(generic.ListView):
 
         return context
 
+class TaggedPostView(generic.ListView):
+    model = Post
+    paginate_by = 10
+    context_object_name = 'post_list'
+    template_name = 'notes/post_tagged.html'
+
 class DetailView(generic.DetailView):
     model = Post
 
