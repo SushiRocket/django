@@ -66,7 +66,7 @@ class IndexView(generic.ListView):
 class CategoryView(generic.ListView):
     model = Post
     paginate_by = 10
-    template_name = 'notes/post_list.html'
+    template_name = 'notes/category.html'
     context_object_name = 'post_list'
 
     def get_queryset(self):
