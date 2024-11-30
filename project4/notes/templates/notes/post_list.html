@@ -196,7 +196,7 @@
                 <ul>
                     {% for tag in tags %}
                     <li class="tag">
-                      <a class="" href="#">{{ tag.name }}</a>
+                      <a class="" href="{% url 'notes:post_tagged' tag.pk %}">{{ tag.name }}</a>
                     </li>
                     {% endfor %}
                 </ul>
