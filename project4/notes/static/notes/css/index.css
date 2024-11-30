@@ -49,8 +49,10 @@ li {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    height: 60px;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1000;
 }
 #header .site-title {
     text-align: left;
@@ -143,7 +145,7 @@ li {
 ------------------------------------------*/
 #main-container {
 background-color: #eeeeee;
-padding-top: 60px;
+padding-top: 90px;
 padding-bottom: 60px;
 }
 .article-content {
