@@ -106,6 +106,22 @@ class TaggedPostView(generic.ListView):
     context_object_name = 'post_list'
     template_name = 'notes/post_tagged.html'
 
+    def get_queryset(self):
+
+        #URLパラメータからタグのスラッグを取得し、そのタグに関連する投稿をフィルタリングします。
+        self.tag = get_object_or_404(Tag, pk=self.kwargs['pk'])
+        queryset = Post.objects.filter(tags__pk=self.tag.pk).order_by('-created_at').select_related('category').prefetch_related('tags')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+
+        #コンテキストデータにタグ情報を追加します。
+        context = super().get_context_data(**kwargs)
+        context['tag'] = self.tag
+        context['tags'] = Tag.objects.all()
+        # 他に必要なコンテキストデータがあればここに追加
+        return context
+
 class DetailView(generic.DetailView):
     model = Post
 

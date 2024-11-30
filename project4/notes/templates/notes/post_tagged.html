@@ -1,5 +1,85 @@
 {% extends 'notes/base.html' %}
 {% load static %}
 
-{% block conent %}
+{% block content %}
+<div id="scene-container">
+    <section class="scene wrapper">
+      <div class="scene-top">
+        Scene
+      </div>
+      <div class="scene-subtop">
+        シーンや気持ちで探す
+      </div>
+      <div class="tags-list-container">
+        {% if tags %}
+          <div class="tag-list">
+            <ul>
+                {% for tag in tags %}
+                <li class="tag">
+                  <a class="" href="{% url 'notes:post_tagged' tag.pk %}">{{ tag.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        {% else %}
+          <p>現在、タグはありません。</p>
+        {% endif %}
+      </div>
+    </section>
+
+</div>
+
+<div class="post-tagged-related-container">
+    <div class="post-tagged-related wrapper">
+    {% if post_list %}
+        <div class="post-tagged-related-top">
+            "{{ tag.name }}" の投稿一覧
+        </div>
+        {% for post in post_list %}
+        <div class="article-content">
+            <a href="{% url 'notes:detail' post.pk %}" >
+            <ul>
+                <li id="post-created-at">
+                    <p>{{ post.created_at|date:"Y.m.d"}}</p>
+                </li>
+                <li id="post-image">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="画像">
+                    {% else %}
+                    <p>画像がありません。</p>
+                    {% endif %}
+                </li>
+            </ul>
+            <h2 class="article-title">
+                  {{ post.title }}
+            </h2>
+            </a>
+            {% if post.id in liked_post %}
+              <!-- 既に「いいね」している場合 -->
+              <button class="like-button liked" data-post-id="{{ post.id }}">
+                ❤️<span class="like-count">{{ post.likes_count }}</span>
+              </button>
+            {% else %}
+              <!-- 「いいね」していない場合 -->
+              <button class="like-button" data-post-id="{{ post.id }}">
+                ♡ <span class="like-count">{{ post.likes_count }}</span>
+              </button>
+            {% endif %}
+            {% if not user.is_authenticated %}
+              <!-- 未ログインユーザーへメッセージ -->
+              <p><a href="{% url 'login' %}?next={{ request.path }}">ログイン</a>すると「いいね」できます。</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>このカテゴリーには投稿がありません。</p>
+    {% endif %}
+
+
+        <div class="page-menu">
+        {% include 'notes/page.html' %}
+        </div>
+    </div>
+</div>
+
 {% endblock %}

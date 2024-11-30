@@ -1,52 +1,61 @@
-/*category.cssについて
+/*tagged_post_について
 ------------------------------------------*/
-#category-container {
-    background-color: #eeeeee;
+#scene-container {
+    background-color: #F0A15E;
     padding-top: 60px;
     padding-bottom: 60px;
 }
-.category-top {
+.scene-top {
     display: inline-block;
     width: 100%;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 }
-.category-subtop {
+.scene-subtop {
     display: inline-block;
     width: 100%;
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 0.75rem;
 }
-.category {
+.scene {
     text-align: center;
 }
-.category-list-container {
+.tag-list-container {
+    text-align: center;
+}
+.tag-list ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    margin: 0 ;
 }
-.category-list {
-    flex: 0 0 calc(33.33% - 20px); /* 3列で表示、アイテム間の間隔分を引く */
-    box-sizing: border-box; /* パディングやマージンを含めて幅を計算 */
-    text-align: center; /* テキストを中央揃え */
+.tag-list ul li.tag {
+    margin-right: 10px; /* タグ間のスペースを調整 */
+    margin-bottom: 10px; /* タグが折り返された際のスペース */
 }
-.category-list p {
-    margin: 0;
+.tag-list ul li.tag a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-sizing: border-box; /* パディングとボーダーを含めたサイズ計算 */
 }
-.category-image {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 10px;
+.tag-list ul li.tag a:hover {
+    background-color: #d0d0d0;
+    transform: scale(1.05);
 }
-.category-related-container {
+.post-tagged-related-container {
     background-color: #ffffff;
     padding-top: 60px;
     padding-bottom: 60px;
 }
-.category-related-top {
+.post-tagged-related-top {
     display: inline-block;
     width: 100%;
     text-align: center;
@@ -80,10 +89,6 @@
     padding-right: 5px;
 }
 .article-title {
-    font-size: 0.75rem;
-    margin: 0.5rem 0 0.5rem 0;
-}
-#main p {
     font-size: 0.75rem;
     margin: 0.5rem 0 0.5rem 0;
 }
