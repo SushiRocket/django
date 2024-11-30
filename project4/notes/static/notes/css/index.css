@@ -49,8 +49,10 @@ li {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    height: 60px;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1000;
 }
 #header .site-title {
     text-align: left;
@@ -79,10 +81,17 @@ li {
     padding-top: 2rem;
 }
 
-.menu a {
-    text-decoration: none;
-    color: #333;
+/* リンクとボタンを共通のスタイルに */
+.menu a, .menu button {
+    display: inline-block;
     padding: 10px 20px;
+    text-decoration: none;
+    color: #000;
+    border: none;
+    border-radius: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 /* ハンバーガーメニューアイコン */
@@ -143,7 +152,7 @@ li {
 ------------------------------------------*/
 #main-container {
 background-color: #eeeeee;
-padding-top: 60px;
+padding-top: 90px;
 padding-bottom: 60px;
 }
 .article-content {

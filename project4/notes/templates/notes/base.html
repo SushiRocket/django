@@ -41,7 +41,7 @@
         <ul class="menu">
           {% if user.is_authenticated %}
           <li>
-            <p>こんにちは、{{ user.username }} さん</p>
+            <a href="{% url 'notes:about' %}">こんにちは、{{ user.username }} さん</a>
           </li>
           <li>
             <form action="{% url 'notes:logout' %}" method="post">
