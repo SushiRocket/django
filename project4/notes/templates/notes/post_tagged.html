@@ -2,36 +2,38 @@
 {% load static %}
 
 {% block content %}
-<div id="category-container">
-    <section class="category wrapper">
-      <div class="category-top">
-        Category
+<div id="scene-container">
+    <section class="scene wrapper">
+      <div class="scene-top">
+        Scene
       </div>
-      <div class="category-subtop">
-        カテゴリから探す
+      <div class="scene-subtop">
+        シーンや気持ちで探す
       </div>
-      <div class="category-list-container">
-        {% for category in category_list %}
-        <div class="category-list">
-          <a class="" href="{% url 'notes:category' category.pk %}">
-            {% if category.image %}
-            <img class="category-image" src="{{ category.image.url }}" alt="{{ category.name }}">
-            {% else %}
-            <p>画像がありません。</p>
-            {% endif%}
-          </a>
-          <p>{{ category.name }}</p>
-        </div>
-        {% endfor %}
+      <div class="tags-list-container">
+        {% if tags %}
+          <div class="tag-list">
+            <ul>
+                {% for tag in tags %}
+                <li class="tag">
+                  <a class="" href="{% url 'notes:post_tagged' tag.pk %}">{{ tag.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+          </div>
+        {% else %}
+          <p>現在、タグはありません。</p>
+        {% endif %}
       </div>
     </section>
+
 </div>
 
-<div class="category-related-container">
-    <div class="category-related wrapper">
+<div class="post-tagged-related-container">
+    <div class="post-tagged-related wrapper">
     {% if post_list %}
-        <div class="category-related-top">
-            "{{ category.name }}" の投稿一覧
+        <div class="post-tagged-related-top">
+            "{{ tag.name }}" の投稿一覧
         </div>
         {% for post in post_list %}
         <div class="article-content">
