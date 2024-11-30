@@ -25,7 +25,6 @@ a:hover {
 
 img {
     max-width: 100%;
-    object-fit: cover;
 }
 
 li {
@@ -170,6 +169,8 @@ padding-bottom: 60px;
 }
 #post-image {
     width: 90%;
+    object-fit: cover;
+
     padding-right: 5px;
 }
 .article-title {
@@ -566,6 +567,7 @@ border～プロパティで三角を作り、positionで位置調整
 /*-------------------------------------------
 SP
 -------------------------------------------*/
+/* パソコンや大きな画面向け */
 @media (min-width: 768px) {
     #header {
         margin-top: 50px;
@@ -579,8 +581,88 @@ SP
         margin: 0 auto;
         padding: 2rem;
     }
-    .article-content ul {
+    .article-container {
+        display: flex;
+        flex-wrap: wrap; /* 横並びにしつつ折り返し可能にする */
+        gap: 20px; /* 記事間のスペース */
+        max-width: 1200px; /* 最大幅を制限 */
+        padding: 10px;
+    }
+    .article-content {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        flex: 1 1 calc(33.333% - 20px); /* 3列表示（余白を考慮） */
+        max-width: calc(33.333% - 20px);
+    }
+    #post-created-at {
+        width: 10%;
+        text-align: center;
+    }
+    #post-image {
+        width: 85%;
+    }
+    #footer .content {
         flex-direction: row;
+        justify-content: space-between;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        transform: none;
+        height: auto;
+        background-color: transparent;
+        gap: 0;
+    }
+    .menu a {
+        padding: 0 15px;
+    }
+    .menu-icon,
+    .menu-toggle {
+        display: none;
+    }
+    #post-detail-title {
+        font-size: 1.5rem; /* タイトルのフォントサイズを小さく */
+    }
+
+    #post-detail-text {
+    padding: 20px; /* テキストのパディングを調整 */
+    }
+}
+
+@media (min-width: 768px) {
+    #header {
+        margin-top: 50px;
+        margin-bottom: 100px;
+    }
+    #header .site-title {
+        font-size: 3rem;
+    }
+    #main {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+    .article-container {
+        display: flex;
+        flex-wrap: wrap; /* 横並びにしつつ折り返し可能にする */
+        justify-content: center;
+        gap: 20px; /* 記事間のスペース */
+        padding: 10px;
+    }
+    .article-content {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center;
+        flex: 1 1 calc(25% - 20px); /* 4列表示（余白を考慮） */
+        max-width: calc(25% - 20px);
     }
     #post-created-at {
         width: 10%;
